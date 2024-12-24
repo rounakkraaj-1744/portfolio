@@ -29,9 +29,10 @@ export default function CodeReviewSection() {
         title: 'Success!',
         description: response.message,
       })
-      // Use type assertion to ensure form element is recognized
-      const form = event.currentTarget as HTMLFormElement
-      form.reset()
+      const formElement = document.getElementById('code-review-form') as HTMLFormElement;
+      if (formElement) {
+        formElement.reset();
+      }
     } else {
       toast({
         title: 'Error',
@@ -64,7 +65,7 @@ export default function CodeReviewSection() {
                   <p className="text-indigo-700 dark:text-indigo-200 mb-4">
                     I offer code reviews for personal projects and hackathon submissions. Get expert feedback to improve your code quality and learn best practices.
                   </p>
-                  <form onSubmit={onSubmit} className="space-y-4">
+                  <form id="code-review-form" onSubmit={onSubmit} className="space-y-4">
                     <div>
                       <Label htmlFor="githubRepo">GitHub Repository URL</Label>
                       <Input
