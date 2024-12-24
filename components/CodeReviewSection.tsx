@@ -24,7 +24,7 @@ export default function CodeReviewSection() {
                     Get Your Code Reviewed
                   </h3>
                   <p className="text-indigo-700 dark:text-indigo-200 mb-4">
-                    I offer code reviews for personal projects and hackathon submissions. Get expert feedback to improve your code quality and learn best practices.
+                    I offer code reviews for personal projects and hackathon submissions. Get excellent feedback to improve your code quality and learn best practices.
                   </p>
                   <Button className="bg-amber-500 hover:bg-amber-600 text-white dark:bg-amber-600 dark:hover:bg-amber-700">
                     <Code className="mr-2 h-4 w-4" />
