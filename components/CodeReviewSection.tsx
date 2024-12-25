@@ -105,9 +105,9 @@ export default function CodeReviewSection() {
                 </div>
                 <div className="w-full md:w-1/2">
                   <img
-                    src="/code-review-illustration.svg"
+                    src="/review.jpg"
                     alt="Code Review Illustration"
-                    className="w-full h-auto"
+                    className="w-full h-100"
                   />
                 </div>
               </div>

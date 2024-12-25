@@ -16,7 +16,7 @@ export default function HeroSection() {
           className="mb-6 p-2 inline-block"
         >
           <h1 className="text-5xl sm:text-6xl font-bold text-indigo-900 dark:text-amber-100">
-            Hi, I'm{' '}
+            Hi, I&apos;m{' '}
             <span className="bg-gradient-to-r from-amber-500 to-indigo-500 bg-clip-text text-transparent">
               Rounakk Raaj Sabat
             </span>
@@ -55,7 +55,7 @@ export default function HeroSection() {
             variant="outline"
             size="lg"
             className="border-indigo-300 text-indigo-700 hover:bg-indigo-100 dark:border-indigo-600 dark:text-indigo-200 dark:hover:bg-indigo-800/50"
-            onClick={() => window.open('/path-to-your-resume.pdf', '_blank')}
+            onClick={() => window.open('/Resumeperm.pdf', '_blank')}
           >
             <Download className="mr-2 h-4 w-4" />
             Download Resume

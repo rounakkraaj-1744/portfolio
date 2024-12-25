@@ -17,10 +17,10 @@ export default function AboutSection() {
             className="p-6 rounded-lg bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-indigo-200 dark:border-indigo-700"
           >
             <p className="text-lg mb-6 text-indigo-800 dark:text-indigo-200">
-              I'm a web developer with a passion for creating beautiful and functional websites. With expertise in React, Next.js, and modern web technologies, I strive to deliver exceptional user experiences.
+              I&apos;m a web developer with a passion for creating beautiful and functional websites. With expertise in React, Next.js, and modern web technologies, I strive to deliver exceptional user experiences.
             </p>
             <p className="text-lg text-indigo-800 dark:text-indigo-200">
-              When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying a good cup of coffee.
+              When I&apos;m not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying a good cup of coffee.
             </p>
           </motion.div>
           <motion.div
