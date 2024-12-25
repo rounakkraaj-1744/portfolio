@@ -10,6 +10,7 @@ import { Code, Loader2 } from 'lucide-react'
 import { submitCodeReview } from '@/app/actions/SubmitCodeReview'
 import { useToast } from '@/hooks/use-toast'
 import { ToastAction } from '@/components/ui/toast'
+import Image from 'next/image'
 
 export default function CodeReviewSection() {
   const [isLoading, setIsLoading] = useState(false)
@@ -104,9 +105,12 @@ export default function CodeReviewSection() {
                   </form>
                 </div>
                 <div className="w-full md:w-1/2">
-                  <img
+                  <Image
                     src="/review.jpg"
                     alt="Code Review Illustration"
+                    layout="responsive"
+                    width={100}
+                    height={100}
                     className="w-full h-100"
                   />
                 </div>
