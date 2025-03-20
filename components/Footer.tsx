@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
-            <h2 className="text-2xl font-bold">Rounak Raaj</h2>
+            <h2 className="text-2xl font-bold">Rounakk Raaj Sabat</h2>
             <p className="text-muted-foreground mt-2">Building the future, one line of code at a time.</p>
           </div>
           <div className="flex gap-4">

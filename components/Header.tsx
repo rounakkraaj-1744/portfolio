@@ -37,14 +37,12 @@ export default function Navbar() {
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300",
         scrolled ? "bg-background/80 backdrop-blur-md shadow-sm" : "bg-transparent",
-      )}
-    >
+      )}>
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         <Link href="#home" className="text-xl font-bold tracking-tight hover:opacity-80 transition-opacity">
-          Rounak Raaj
+          Rounakk Raaj Sabat
         </Link>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-6">
           <div className="flex gap-6">
             {navLinks.map((link) => (
@@ -63,7 +61,6 @@ export default function Navbar() {
           </Button>
         </div>
 
-        {/* Mobile Navigation Toggle */}
         <div className="flex items-center gap-4 md:hidden">
           <ThemeToggle />
           <Button variant="ghost" size="icon" onClick={toggleMenu} aria-label="Toggle Menu">
@@ -72,7 +69,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Navigation Menu */}
       {isOpen && (
         <div className="md:hidden bg-background border-b">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
@@ -97,4 +93,3 @@ export default function Navbar() {
     </nav>
   )
 }
-
