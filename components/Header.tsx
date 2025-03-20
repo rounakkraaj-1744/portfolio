@@ -1,97 +1,100 @@
-'use client'
+"use client"
 
-import { useState, useEffect } from 'react'
-import { useTheme } from 'next-themes'
+import { useState, useEffect } from "react"
+import Link from "next/link"
+import { Menu, X } from "lucide-react"
+import { ThemeToggle } from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
-import { motion } from 'framer-motion'
-import { Sun, Moon, Menu } from 'lucide-react'
-import Link from 'next/link'
+import { cn } from "@/lib/utils"
 
-export default function Header() {
-  const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    setMounted(true)
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  if (!mounted) return null
+  const toggleMenu = () => {
+    setIsOpen(!isOpen)
+  }
+
+  const navLinks = [
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Skills", href: "#skills" },
+    { name: "Projects", href: "#projects" },
+    { name: "Experience", href: "#experience" },
+    { name: "Contact", href: "#contact" },
+  ]
 
   return (
-    <motion.header
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border"
+    <nav
+      className={cn(
+        "fixed top-0 w-full z-50 transition-all duration-300",
+        scrolled ? "bg-background/80 backdrop-blur-md shadow-sm" : "bg-transparent",
+      )}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          <Link href="/" className="font-bold text-xl">PORTFOLIO</Link>
-          <nav className="hidden md:flex items-center space-x-8">
-            <NavLink href="#about">About</NavLink>
-            <NavLink href="#projects">Projects</NavLink>
-            <NavLink href="#code-review">Code Review</NavLink>
-            <NavLink href="#contact">Contact</NavLink>
-          </nav>
-          <div className="flex items-center space-x-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Open menu"
-            >
-              <Menu className="h-5 w-5" />
+      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+        <Link href="#home" className="text-xl font-bold tracking-tight hover:opacity-80 transition-opacity">
+          Rounak Raaj
+        </Link>
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-6">
+          <div className="flex gap-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="text-sm font-medium hover:text-primary transition-colors"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+          <ThemeToggle />
+          <Button asChild size="sm">
+            <Link href="#contact">Get In Touch</Link>
+          </Button>
+        </div>
+
+        {/* Mobile Navigation Toggle */}
+        <div className="flex items-center gap-4 md:hidden">
+          <ThemeToggle />
+          <Button variant="ghost" size="icon" onClick={toggleMenu} aria-label="Toggle Menu">
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </Button>
+        </div>
+      </div>
+
+      {/* Mobile Navigation Menu */}
+      {isOpen && (
+        <div className="md:hidden bg-background border-b">
+          <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="text-sm font-medium py-2 hover:text-primary transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.name}
+              </Link>
+            ))}
+            <Button asChild size="sm" className="mt-2">
+              <Link href="#contact" onClick={() => setIsOpen(false)}>
+                Get In Touch
+              </Link>
             </Button>
           </div>
         </div>
-      </div>
-      {isMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.3 }}
-          className="md:hidden"
-        >
-          <nav className="px-4 py-2 space-y-2">
-            <MobileNavLink href="#about" onClick={() => setIsMenuOpen(false)}>About</MobileNavLink>
-            <MobileNavLink href="#projects" onClick={() => setIsMenuOpen(false)}>Projects</MobileNavLink>
-            <MobileNavLink href="#code-review" onClick={() => setIsMenuOpen(false)}>Code Review</MobileNavLink>
-            <MobileNavLink href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</MobileNavLink>
-          </nav>
-        </motion.div>
       )}
-    </motion.header>
-  )
-}
-
-function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
-  return (
-    <Link href={href} className="text-foreground/60 hover:text-foreground transition-colors duration-200">
-      {children}
-    </Link>
-  )
-}
-
-function MobileNavLink({ href, onClick, children }: { href: string; onClick: () => void; children: React.ReactNode }) {
-  return (
-    <Link
-      href={href}
-      className="block py-2 text-foreground/60 hover:text-foreground transition-colors duration-200"
-      onClick={onClick}
-    >
-      {children}
-    </Link>
+    </nav>
   )
 }
 

@@ -1,67 +1,124 @@
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
-import { Link, Download } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+"use client"
 
-export default function HeroSection() {
-  const router = useRouter();
+import { useEffect, useState } from "react"
+import Link from "next/link"
+import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
+
+export default function Hero() {
+  const [typedText, setTypedText] = useState("")
+  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0)
+  const [isDeleting, setIsDeleting] = useState(false)
+  const phrases = ["Full Stack Developer", "Mobile Developer", "Systems Designer", "DevOps Engineer"]
+
+  useEffect(() => {
+    const typingSpeed = isDeleting ? 50 : 150
+    const deletingSpeed = 50
+    const pauseTime = 1500
+
+    const currentPhrase = phrases[currentPhraseIndex]
+
+    const timeout = setTimeout(
+      () => {
+        if (isDeleting) {
+          setTypedText(currentPhrase.substring(0, typedText.length - 1))
+
+          if (typedText.length === 0) {
+            setIsDeleting(false)
+            setCurrentPhraseIndex((currentPhraseIndex + 1) % phrases.length)
+          }
+        }
+        else {
+          setTypedText(currentPhrase.substring(0, typedText.length + 1))
+          if (typedText.length === currentPhrase.length) {
+            setTimeout(() => {
+              setIsDeleting(true)
+            }, pauseTime)
+          }
+        }
+      },
+      isDeleting ? deletingSpeed : typingSpeed,
+    )
+
+    return () => clearTimeout(timeout)
+  }, [typedText, currentPhraseIndex, isDeleting, phrases])
+
   return (
-    <section className="relative py-20 px-4 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-amber-200/20 via-indigo-200/10 to-transparent dark:from-amber-700/20 dark:via-indigo-700/10 dark:to-transparent"></div>
-      <div className="relative max-w-4xl mx-auto text-center">
-        <motion.div
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-6 p-2 inline-block"
-        >
-          <h1 className="text-5xl sm:text-6xl font-bold text-indigo-900 dark:text-amber-100">
-            Hi, I&apos;m{' '}
-            <span className="bg-gradient-to-r from-amber-500 to-indigo-500 bg-clip-text text-transparent">
-              Rounakk Raaj Sabat
-            </span>
-          </h1>
-        </motion.div>
-        <motion.p
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xl mb-8 text-indigo-700 dark:text-indigo-200"
-        >
-          A passionate web developer creating amazing digital experiences
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="space-x-4"
-        >
-          <Button
-            size="lg"
-            onClick={() => router.push('#contact')}
-            className="bg-amber-500 hover:bg-amber-600 text-white dark:bg-amber-600 dark:hover:bg-amber-700"
-          >
-            Get in touch
-          </Button>
-          <Button
-            size="lg"
-            className="bg-amber-500 hover:bg-amber-600 text-white dark:bg-amber-600 dark:hover:bg-amber-700"
-            onClick={() => window.open('https://codebriefs.netlify.app', '_blank', 'noopener noreferrer')}
-          >
-            <Link className="mr-2 h-4 w-4" />
-            Blogs
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="border-indigo-300 text-indigo-700 hover:bg-indigo-100 dark:border-indigo-600 dark:text-indigo-200 dark:hover:bg-indigo-800/50"
-            onClick={() => window.open('/Resumeperm.pdf', '_blank')}
-          >
-            <Download className="mr-2 h-4 w-4" />
-            Download Resume
-          </Button>
-        </motion.div>
+    <section id="home" className="relative min-h-screen flex items-center pt-16">
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/20 via-background to-background"></div>
+      <div className="container mx-auto px-4 py-16 grid md:grid-cols-2 gap-8 items-center">
+        <div className="flex flex-col gap-6">
+          <div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">Hi, I&apos;m Rounak Raaj</h1>
+            <div className="h-12 mt-4">
+              <h2 className="text-xl md:text-2xl font-medium text-primary">
+                I&apos;m a{" "}
+                <span className="relative">
+                  {typedText}
+                  <span
+                    className={cn(
+                      "absolute ml-1 top-0 h-full w-[2px] bg-primary",
+                      typedText.length === phrases[currentPhraseIndex].length && !isDeleting ? "animate-blink" : "",
+                    )}
+                  ></span>
+                </span>
+              </h2>
+            </div>
+            <p className="mt-4 text-muted-foreground max-w-md">
+              A passionate college student with a strong foundation in software development, focusing on building
+              innovative solutions for product-based companies.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-4">
+            <Button asChild size="lg">
+              <Link href="#contact">Contact Me</Link>
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <Link href="#projects">View Projects</Link>
+            </Button>
+          </div>
+
+          <div className="flex gap-4 mt-2">
+            <Button variant="ghost" size="icon" asChild>
+              <Link href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                <Github className="h-5 w-5" />
+                <span className="sr-only">GitHub</span>
+              </Link>
+            </Button>
+            <Button variant="ghost" size="icon" asChild>
+              <Link href="https://www.linkedin.com/in/rounakk-raaj-745rrs/" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="h-5 w-5" />
+                <span className="sr-only">LinkedIn</span>
+              </Link>
+            </Button>
+            <Button variant="ghost" size="icon" asChild>
+              <Link href="mailto:contact@example.com">
+                <Mail className="h-5 w-5" />
+                <span className="sr-only">Email</span>
+              </Link>
+            </Button>
+          </div>
+        </div>
+
+        <div className="hidden md:flex justify-center items-center">
+          <div className="relative w-80 h-80 rounded-full bg-gradient-to-br from-primary/80 to-primary/20 flex items-center justify-center">
+            <div className="absolute inset-3 rounded-full bg-background flex items-center justify-center overflow-hidden">
+              <div className="w-full h-full bg-muted flex items-center justify-center text-6xl">RR</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <Button variant="ghost" size="icon" asChild>
+          <Link href="#about">
+            <ArrowDown className="h-6 w-6" />
+            <span className="sr-only">Scroll Down</span>
+          </Link>
+        </Button>
       </div>
     </section>
-  );
+  )
 }
