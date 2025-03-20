@@ -1,16 +1,17 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import { Inter } from 'next/font/google'
-import { Providers } from './providers'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+import type React from "react"
+import "@/app/globals.css"
+import { Inter } from "next/font/google"
+import { Toaster } from "@/components/ui/toaster"
+import { Navbar } from "@nextui-org/react"
+import { ThemeProvider } from "next-themes"
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] })
 
-export const metadata: Metadata = {
-  title: "RounakksDevPortfolio",
-  description: "A modern portfolio design",
-};
+export const metadata = {
+  title: "Rounak Raaj - Software Developer Portfolio",
+  description:
+    "Personal portfolio of Rounak Raaj, a software developer specializing in full stack development, mobile development, systems design, and DevOps.",
+}
 
 export default function RootLayout({
   children,
@@ -20,13 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <Providers>
-          <div className="flex flex-col min-h-screen">
-            <Header />
-              <main className="flex-grow">{children}</main>
-            <Footer />
-          </div>
-        </Providers>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <Navbar />
+          {children}
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   )
