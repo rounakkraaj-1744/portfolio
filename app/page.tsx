@@ -1,18 +1,22 @@
-'use client';
-
-import HeroSection from "@/components/HeroSection";
-import AboutSection from '@/components/AboutSection';
-import ProjectsSection from '@/components/ProjectSection';
-import ContactSection from '@/components/ContactSection';
+import About from "@/components/AboutSection";
+import Experience from "@/components/ExperienceSection";
+import Footer from "@/components/Footer";
+import Hero from "@/components/HeroSection";
+import Projects from "@/components/ProjectSection";
+import Skills from "@/components/SkillSection";
+import { Contact } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-indigo-100 dark:from-gray-900 dark:to-indigo-900 transition-colors duration-500">
-      <HeroSection />
-      <AboutSection />
-      <ProjectsSection />
-      <ContactSection />
-    </div>
-  );
+    <main className="min-h-screen">
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <Experience />
+      <Contact />
+      <Footer />
+    </main>
+  )
 }
 
