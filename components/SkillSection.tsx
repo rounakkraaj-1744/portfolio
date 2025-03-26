@@ -54,29 +54,6 @@ export default function Skills() {
             </div>
           ))}
         </div>
-
-        <div className="mt-16 bg-muted/30 p-8 rounded-lg">
-          <h3 className="text-xl font-semibold mb-6 text-center">Technical Proficiency</h3>
-          <div className="grid gap-6">
-            {[
-              { name: "Full Stack Development", percentage: 85 },
-              { name: "Mobile Development", percentage: 75 },
-              { name: "Systems Design", percentage: 70 },
-              { name: "DevOps", percentage: 65 },
-              { name: "Data Structures & Algorithms", percentage: 80 },
-            ].map((item, index) => (
-              <div key={index}>
-                <div className="flex justify-between mb-1">
-                  <span className="font-medium">{item.name}</span>
-                  <span className="text-sm text-muted-foreground">{item.percentage}%</span>
-                </div>
-                <div className="w-full bg-muted rounded-full h-2.5">
-                  <div className="bg-primary h-2.5 rounded-full" style={{ width: `${item.percentage}%` }}></div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   )
