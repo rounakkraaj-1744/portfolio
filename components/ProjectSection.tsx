@@ -53,28 +53,7 @@ export default function Projects() {
       tags: ["DevOps", "Docker", "Jenkins", "AWS", "Kubernetes"],
       category: "devops",
       github: "#",
-    },
-    {
-      id: 5,
-      title: "Social Media Dashboard",
-      description:
-        "A responsive dashboard for social media analytics with real-time data visualization and reporting features.",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["Full Stack", "Next.js", "TypeScript", "Chart.js", "API Integration"],
-      category: "web",
-      github: "#",
-      demo: "#",
-    },
-    {
-      id: 6,
-      title: "Inventory Management System",
-      description:
-        "A system for tracking inventory levels, orders, sales, and deliveries for small to medium businesses.",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["Full Stack", "Spring Boot", "React", "MySQL", "REST API"],
-      category: "web",
-      github: "#",
-    },
+    }
   ]
 
   const filteredProjects = activeTab === "all" ? projects : projects.filter((project) => project.category === activeTab)
