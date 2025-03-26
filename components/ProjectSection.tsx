@@ -14,9 +14,9 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Platform",
+      title: "CodeBriefs",
       description:
-        "A full-stack e-commerce application with product catalog, user authentication, cart functionality, and payment integration.",
+        "A markdown blogpost app for sharing and learning coding through notes and cheatsheets",
       image: "/placeholder.svg?height=300&width=500",
       tags: ["Full Stack", "React", "Node.js", "MongoDB", "Express"],
       category: "web",
@@ -25,9 +25,9 @@ export default function Projects() {
     },
     {
       id: 2,
-      title: "Task Management App",
+      title: "PassSafeX",
       description:
-        "A mobile application for task management with features like task creation, reminders, categories, and progress tracking.",
+        "A safe, secure, scalable and reliable password manager that respects your privacy",
       image: "/placeholder.svg?height=300&width=500",
       tags: ["Mobile", "React Native", "Firebase", "Redux"],
       category: "mobile",
@@ -36,9 +36,9 @@ export default function Projects() {
     },
     {
       id: 3,
-      title: "Distributed File System",
+      title: "LangMorph",
       description:
-        "A distributed file system implementation with features like replication, fault tolerance, and load balancing.",
+        "A VS Code Extension that allows in-editor AI Based code conversion from one programming language to another",
       image: "/placeholder.svg?height=300&width=500",
       tags: ["Systems", "Java", "Networking", "Concurrency"],
       category: "systems",
@@ -46,9 +46,9 @@ export default function Projects() {
     },
     {
       id: 4,
-      title: "CI/CD Pipeline Automation",
+      title: "Music Hunter",
       description:
-        "Automated CI/CD pipeline for a microservices architecture, including testing, building, and deployment stages.",
+        "My personalized music player ... (Spotify clone but my style)",
       image: "/placeholder.svg?height=300&width=500",
       tags: ["DevOps", "Docker", "Jenkins", "AWS", "Kubernetes"],
       category: "devops",
