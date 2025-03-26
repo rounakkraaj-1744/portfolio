@@ -8,9 +8,9 @@ import { ThemeProvider } from "next-themes"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "Rounak Raaj - Software Developer Portfolio",
+  title: "Rounakk Raaj Sabat- Software Developer Portfolio",
   description:
-    "Personal portfolio of Rounak Raaj, a software developer specializing in full stack development, mobile development, systems design, and DevOps.",
+    "Personal portfolio of Rounakk Raaj Sabat, a software developer specializing in full stack development, mobile development, systems design, and DevOps.",
 }
 
 export default function RootLayout({

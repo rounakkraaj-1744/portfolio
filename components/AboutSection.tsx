@@ -22,10 +22,6 @@ export default function About() {
               Currently, I am focused on honing my skills in full-stack development, mobile app development, systems
               design, and DevOps practices. I enjoy tackling complex problems and turning them into elegant solutions.
             </p>
-            <p className="text-muted-foreground">
-              As I prepare to enter the industry, I am particularly interested in product-based companies where I can
-              contribute to meaningful projects and continue to grow as a developer.
-            </p>
           </div>
 
           <div className="grid grid-cols-2 gap-6">
