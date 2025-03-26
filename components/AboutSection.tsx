@@ -55,20 +55,9 @@ export default function About() {
                 Open Source
               </p>
             </div>
-            <div className="bg-background p-6 rounded-lg shadow-sm">
-              <h4 className="font-bold mb-2">Goals</h4>
-              <p className="text-sm text-muted-foreground">
-                Join a Product-Based Company
-                <br />
-                Contribute to Innovative Projects
-                <br />
-                Continuous Learning
-              </p>
-            </div>
           </div>
         </div>
       </div>
     </section>
   )
 }
-
