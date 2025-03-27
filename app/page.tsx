@@ -1,5 +1,5 @@
 import About from "@/components/AboutSection";
-import Experience from "@/components/ExperienceSection";
+// import Experience from "@/components/ExperienceSection";
 import Footer from "@/components/Footer";
 import Hero from "@/components/HeroSection";
 import Projects from "@/components/ProjectSection";
