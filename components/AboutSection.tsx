@@ -12,15 +12,25 @@ export default function About() {
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold">Aspiring Software Engineer & Problem Solver</h3>
+            <h3 className="text-2xl font-semibold">Aspiring Software Engineer, System Programmer & Problem Solver</h3>
             <p className="text-muted-foreground">
-              I am a passionate computer science student with a strong foundation in software development and a keen
-              interest in building scalable applications. My journey in tech began with curiosity about how digital
-              products work, which led me to pursue a degree in computer science.
+              I am a passionate Computer Science student with a deep interest in full-stack development, mobile app development,
+              system programming, and DevOps. My journey in tech started with a curiosity about how digital products work,
+              which evolved into hands-on experience building scalable and production-ready applications across multiple domains.
             </p>
             <p className="text-muted-foreground">
-              Currently, I am focused on honing my skills in full-stack development, mobile app development, systems
-              design, and DevOps practices. I enjoy tackling complex problems and turning them into elegant solutions.
+              I specialize in developing high-performance web and mobile applications using Next.js,
+              React Native, NestJS, Spring Boot, and Rust while leveraging PostgreSQL, MongoDB, and cloud-based databases.
+              My expertise extends to DevOps and cloud infrastructure, where I integrate Docker, Kubernetes, AWS, and CI/CD pipelines to
+              ensure seamless deployment and scalability.
+            </p>
+            <p className="text-muted-foreground">
+              Beyond full-stack development, I am exploring Generative AI (GenAI) for application development,
+              incorporating LangChain and AI-driven automation into my projects.
+              I also have a strong foundation in system programming, building optimized software that blends efficiency with modern technology.
+            </p>
+            <p className="text-muted-foreground">
+              Let's connect and build something impactful together!
             </p>
           </div>
 
