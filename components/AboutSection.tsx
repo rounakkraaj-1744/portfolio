@@ -30,25 +30,25 @@ export default function About() {
               <p className="text-sm text-muted-foreground">
                 Bachelor of Technology in Computer Science
                 <br />
-                Expected Graduation: 2025
+                Year of Graduation: 2027
               </p>
             </div>
             <div className="bg-background p-6 rounded-lg shadow-sm">
               <h4 className="font-bold mb-2">Location</h4>
               <p className="text-sm text-muted-foreground">
-                Based in India
+                Based in Odisha, India
                 <br />
-                Open to Remote Opportunities
+                Open to Hybrid/Remote Opportunities
               </p>
             </div>
             <div className="bg-background p-6 rounded-lg shadow-sm">
               <h4 className="font-bold mb-2">Interests</h4>
               <p className="text-sm text-muted-foreground">
-                System Architecture
+                Blockchain
                 <br />
-                Cloud Computing
+                Low Latency Programming
                 <br />
-                Open Source
+                Open Source Contribution
               </p>
             </div>
           </div>
