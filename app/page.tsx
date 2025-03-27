@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/HeroSection";
 import Projects from "@/components/ProjectSection";
 import Skills from "@/components/SkillSection";
-import { Contact } from "lucide-react";
+// import { Contact } from "lucide-react";
 
 export default function Home() {
   return (
@@ -14,7 +14,7 @@ export default function Home() {
       <Skills />
       <Projects />
       {/* <Experience /> */}
-      <Contact />
+      {/* <Contact /> */}
       <Footer />
     </main>
   )
