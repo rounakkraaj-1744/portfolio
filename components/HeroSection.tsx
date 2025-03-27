@@ -5,6 +5,7 @@ import Link from "next/link"
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import Image from "next/image"
 
 export default function Hero() {
   const [typedText, setTypedText] = useState("")
