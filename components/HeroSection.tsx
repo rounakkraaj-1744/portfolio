@@ -11,7 +11,7 @@ export default function Hero() {
   const [typedText, setTypedText] = useState("")
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0)
   const [isDeleting, setIsDeleting] = useState(false)
-  const phrases = ["Full Stack Developer", "Mobile Developer", "Systems Designer", "DevOps Engineer"]
+  const phrases = ["Full Stack Developer", "Problem Solving", "Systems Designer", "Low Latency Programming", "Web3 and Blockchain development"]
 
   useEffect(() => {
     const typingSpeed = isDeleting ? 50 : 150
@@ -67,8 +67,7 @@ export default function Hero() {
               </h2>
             </div>
             <p className="mt-4 text-muted-foreground max-w-md">
-              A passionate college student with a strong foundation in software development, focusing on building
-              innovative solutions for product-based companies.
+            Turning complex problems into efficient, scalable solutions.
             </p>
           </div>
 
