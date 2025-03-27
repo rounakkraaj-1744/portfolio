@@ -17,22 +17,22 @@ export default function Projects() {
       title: "CodeBriefs",
       description:
         "A markdown blogpost app for sharing and learning coding through notes and cheatsheets",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["Full Stack", "React", "Node.js", "MongoDB", "Express"],
+      image: "/codebriefs.png?height=300&width=500",
+      tags: ["Next.js", "OAuth", "Prisma", "Postgres", "TailwindCSS", "ShadCN"],
       category: "web",
       github: "#",
-      demo: "#",
+      // demo: "#",
     },
     {
       id: 2,
       title: "PassSafeX",
       description:
         "A safe, secure, scalable and reliable password manager that respects your privacy",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["Mobile", "React Native", "Firebase", "Redux"],
-      category: "mobile",
+      image: "/password.png?height=300&width=500",
+      tags: ["Next.js", "OAuth", "Prisma", "Postgres", "TailwindCSS", "ShadCN", "Express.js", "bcrypt.js", "Docker compose"],
+      category: "web",
       github: "#",
-      demo: "#",
+      // demo: "#",
     },
     {
       id: 3,
@@ -40,7 +40,7 @@ export default function Projects() {
       description:
         "A VS Code Extension that allows in-editor AI Based code conversion from one programming language to another",
       image: "/placeholder.svg?height=300&width=500",
-      tags: ["Systems", "Java", "Networking", "Concurrency"],
+      tags: ["TypeScript", "Gemini 2.O Flash API"],
       category: "systems",
       github: "#",
     },
@@ -49,9 +49,19 @@ export default function Projects() {
       title: "Music Hunter",
       description:
         "My personalized music player ... (Spotify clone but my style)",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["DevOps", "Docker", "Jenkins", "AWS", "Kubernetes"],
-      category: "devops",
+      image: "/musichunter.png?height=300&width=500",
+      tags: ["DevOps", "Docker", "Next.js", "Express.js", "AWS S3", "Kubernetes", "TailwindCSS","ShadCN"],
+      category: "web",
+      github: "#",
+    },
+    {
+      id: 5,
+      title: "Weather App",
+      description:
+        "Full Stack weather app to get accurate weather forecast as per your location",
+      image: "/musichunter.png?height=300&width=500",
+      tags: ["Next.js", "Express.js", "OpenWeatherMap API"],
+      category: "web",
       github: "#",
     }
   ]
@@ -111,14 +121,6 @@ export default function Projects() {
                         Code
                       </Link>
                     </Button>
-                    {project.demo && (
-                      <Button asChild size="sm">
-                        <Link href={project.demo} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="h-4 w-4 mr-2" />
-                          Demo
-                        </Link>
-                      </Button>
-                    )}
                   </CardFooter>
                 </Card>
               ))}
@@ -128,7 +130,7 @@ export default function Projects() {
 
         <div className="mt-12 text-center">
           <Button asChild variant="outline" size="lg">
-            <Link href="https://github.com/" target="_blank" rel="noopener noreferrer">
+            <Link href="https://github.com/rounakkraaj-1744" target="_blank" rel="noopener noreferrer">
               <Code className="h-5 w-5 mr-2" />
               View More on GitHub
             </Link>
