@@ -59,7 +59,7 @@ export default function Projects() {
       title: "Weather App",
       description:
         "Full Stack weather app to get accurate weather forecast as per your location",
-      image: "/musichunter.png?height=300&width=500",
+      image: "/weather.png?height=300&width=500",
       tags: ["Next.js", "Express.js", "OpenWeatherMap API"],
       category: "web",
       github: "#",
