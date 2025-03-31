@@ -106,7 +106,7 @@ export default function Hero() {
           <div className="relative w-80 h-80 rounded-full bg-gradient-to-br from-primary/80 to-primary/20 flex items-center justify-center">
             <div className="absolute inset-3 rounded-full bg-background flex items-center justify-center overflow-hidden">
               <div className="w-full h-full bg-muted flex items-center justify-center text-6xl">
-                <Image src="/image" alt="loading..." width="100" height="100"/>
+                <Image src="/myimage.jpg" alt="loading..." width="100" height="100"/>
               </div>
             </div>
           </div>
