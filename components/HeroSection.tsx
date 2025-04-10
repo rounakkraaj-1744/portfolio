@@ -7,11 +7,12 @@ import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 
+const phrases = ["Full Stack Developer", "Problem Solver", "Systems Designer", "Low Latency Programmer", "Web3 and Blockchain developer"]
+
 export default function Hero() {
   const [typedText, setTypedText] = useState("")
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0)
   const [isDeleting, setIsDeleting] = useState(false)
-  const phrases = ["Full Stack Developer", "Problem Solver", "Systems Designer", "Low Latency Programmer", "Web3 and Blockchain developer"]
 
   useEffect(() => {
     const typingSpeed = isDeleting ? 50 : 150
@@ -43,7 +44,7 @@ export default function Hero() {
     )
 
     return () => clearTimeout(timeout)
-  }, [typedText, currentPhraseIndex, isDeleting, phrases])
+  }, [typedText, currentPhraseIndex, isDeleting])
 
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-16">
@@ -67,7 +68,7 @@ export default function Hero() {
               </h2>
             </div>
             <p className="mt-4 text-muted-foreground max-w-md">
-            Turning complex problems into efficient, scalable solutions.
+              Turning complex problems into efficient, scalable solutions.
             </p>
           </div>
 

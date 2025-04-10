@@ -30,7 +30,7 @@ export default function About() {
               I also have a strong foundation in system programming, building optimized software that blends efficiency with modern technology.
             </p>
             <p className="text-muted-foreground">
-              Let's connect and build something impactful together!
+              Let&apos;s connect and build something impactful together!
             </p>
           </div>
 
@@ -38,7 +38,7 @@ export default function About() {
             <div className="bg-background p-6 rounded-lg shadow-sm">
               <h4 className="font-bold mb-2">Education</h4>
               <p className="text-sm text-muted-foreground">
-                Bachelor of Technology in Computer Science
+                Bachelor&apos;s of Technology in Computer Science
                 <br />
                 Year of Graduation: 2027
               </p>
