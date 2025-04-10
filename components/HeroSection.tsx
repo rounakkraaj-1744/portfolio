@@ -52,7 +52,7 @@ export default function Hero() {
       <div className="container mx-auto px-4 py-16 grid md:grid-cols-2 gap-8 items-center">
         <div className="flex flex-col gap-6">
           <div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">Hi, I&apos;m Rounakk Raaj Sabat</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold tracking-tight">Hi, I&apos;m Rounakk Raaj Sabat</h1>
             <div className="h-12 mt-4">
               <h2 className="text-xl md:text-2xl font-medium text-primary">
                 I&apos;m a{" "}
