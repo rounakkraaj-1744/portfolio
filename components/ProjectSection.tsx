@@ -74,7 +74,7 @@ export default function Projects() {
         <div className="flex flex-col items-center text-center mb-12">
           <h2 className="text-3xl font-bold">My Projects</h2>
           <div className="w-20 h-1 bg-primary mt-2 mb-6"></div>
-          <p className="max-w-2xl text-muted-foreground">A showcase of my technical projects and applications.</p>
+          <p className="max-w-2xl text-muted-foreground">A curated selection of my technical projects showcasing my skills and expertise.</p>
         </div>
 
         <Tabs defaultValue="all" className="w-full" onValueChange={setActiveTab}>

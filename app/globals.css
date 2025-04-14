@@ -58,38 +58,6 @@
   }
 }
 
-@layer utilities {
-  .animate-slow-spin {
-    animation: slow-spin 8s linear infinite;
-  }
-
-  .animate-shimmer {
-    animation: shimmer 2s linear infinite;
-  }
-
-  .animate-blink {
-    animation: blink 0.8s infinite;
-  }
-}
-
-@keyframes slow-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes shimmer {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(100%);
-  }
-}
-
 @keyframes blink {
   0%,
   100% {
@@ -98,4 +66,12 @@
   50% {
     opacity: 0;
   }
+}
+
+.animate-blink {
+  animation: blink 1s infinite;
+}
+
+html {
+  scroll-behavior: smooth;
 }
