@@ -1,23 +1,23 @@
-import About from "@/components/AboutSection";
-import Contact from "@/components/ContactSection";
-// import Experience from "@/components/ExperienceSection";
-import Footer from "@/components/Footer";
-import Hero from "@/components/HeroSection";
-import Projects from "@/components/ProjectSection";
-import Skills from "@/components/SkillSection";
-// import { Contact } from "lucide-react";
+import Hero from "@/components/HeroSection"
+import About from "@/components/AboutSection"
+import Skills from "@/components/SkillSection"
+import Projects from "@/components/ProjectSection"
+import Experience from "@/components/ExperienceSection"
+import Freelance from "@/components/FreelanceSection"
+import Contact from "@/components/ContactSection"
+import Footer from "@/components/Footer"
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main>
       <Hero />
       <About />
       <Skills />
       <Projects />
-      {/* <Experience /> */}
+      <Experience />
+      <Freelance />
       <Contact />
       <Footer />
     </main>
   )
 }
-

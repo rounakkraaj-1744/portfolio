@@ -1,30 +1,33 @@
 import type React from "react"
-import "@/app/globals.css"
-import { Inter } from "next/font/google"
-import { Toaster } from "@/components/ui/toaster"
-import { Navbar } from "@nextui-org/react"
+import type { Metadata } from "next"
+import { Space_Grotesk } from "next/font/google"
+import "./globals.css"
 import { ThemeProvider } from "next-themes"
+import Navbar from "@/components/Navbar"
+import CustomCursor from "@/components/Customcursor"
 
-const inter = Inter({ subsets: ["latin"] })
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+})
 
-export const metadata = {
-  title: "Rounakk Raaj Sabat- Software Developer Portfolio",
-  description:
-    "Personal portfolio of Rounakk Raaj Sabat, a software developer specializing in full stack development, mobile development, systems design, and DevOps.",
+export const metadata: Metadata = {
+  title: "Rounakk Raaj Sabat | Portfolio",
+  description: "Full Stack Developer, Problem Solver, and Systems Designer",
 }
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode
-}) {
+}>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+      <body className={`${spaceGrotesk.variable} font-sans`}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
+          <CustomCursor />
           <Navbar />
           {children}
-          <Toaster />
         </ThemeProvider>
       </body>
     </html>
