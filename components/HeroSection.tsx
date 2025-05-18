@@ -6,7 +6,7 @@ import { ArrowDown, Github, Linkedin, Mail, FileText, Code, Zap } from "lucide-r
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { TypewriterEffect } from "@/components/ui/typewriter-effect"
+import { TypewriterEffect } from "./ui/typewriter-effect"
 
 const phrases = [
   "Full Stack Developer",
@@ -67,7 +67,7 @@ export default function Hero() {
 
         {/* Glowing orbs */}
         <div className="absolute top-20 right-20 w-72 h-72 rounded-full blur-3xl bg-primary/10 animate-pulse-slow"></div>
-        <div className="absolute bottom-10 left-10 w-80 h-80 rounded-full blur-3xl bg-purple-500/5 animate-pulse-medium"></div>
+        <div className="absolute bottom-10 left-10 w-80 h-80 rounded-full blur-3xl bg-blue-500/5 animate-pulse-medium"></div>
 
         {/* Grid lines */}
         <div className="absolute inset-0 bg-grid-white/[0.02] -z-10" />
@@ -130,7 +130,7 @@ export default function Hero() {
           >
             <Button asChild size="lg" className="group relative overflow-hidden">
               <Link href="#contact">
-                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-purple-500 group-hover:opacity-90 transition-opacity"></span>
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-blue-500 group-hover:opacity-90 transition-opacity"></span>
                 <span className="relative flex items-center">
                   <Zap className="mr-2 h-5 w-5 group-hover:animate-pulse" />
                   Contact Me
@@ -217,9 +217,9 @@ export default function Hero() {
             </div>
 
             {/* Animated rings */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-purple-500/10 animate-pulse-slow"></div>
-            <div className="absolute inset-3 rounded-full bg-gradient-to-tr from-primary/20 to-purple-500/5 animate-pulse-medium"></div>
-            <div className="absolute inset-6 rounded-full bg-gradient-to-tl from-primary/10 to-purple-500/5 animate-pulse-fast"></div>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-blue-500/10 animate-pulse-slow"></div>
+            <div className="absolute inset-3 rounded-full bg-gradient-to-tr from-primary/20 to-blue-500/5 animate-pulse-medium"></div>
+            <div className="absolute inset-6 rounded-full bg-gradient-to-tl from-primary/10 to-blue-500/5 animate-pulse-fast"></div>
 
             {/* Profile image */}
             <div className="absolute inset-9 rounded-full bg-background flex items-center justify-center overflow-hidden tilt-inner">
@@ -239,7 +239,7 @@ export default function Hero() {
 
             {/* Decorative elements */}
             <div className="absolute -top-4 -right-4 w-8 h-8 rounded-full bg-primary/30 animate-float-slow"></div>
-            <div className="absolute -bottom-4 -left-4 w-6 h-6 rounded-full bg-purple-500/30 animate-float-medium"></div>
+            <div className="absolute -bottom-4 -left-4 w-6 h-6 rounded-full bg-blue-500/30 animate-float-medium"></div>
           </div>
         </motion.div>
       </motion.div>

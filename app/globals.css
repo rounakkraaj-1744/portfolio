@@ -13,7 +13,7 @@
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 263 75% 63%;
+    --primary: 210 100% 50%;
     --primary-foreground: 0 0% 98%;
 
     --secondary: 240 3.7% 15.9%;
@@ -30,7 +30,7 @@
 
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 263 75% 63%;
+    --ring: 210 100% 50%;
 
     --radius: 0.5rem;
   }
@@ -265,7 +265,7 @@
 
 /* Gradient text */
 .gradient-text {
-  @apply bg-gradient-to-r from-primary via-purple-400 to-pink-500 bg-clip-text text-transparent animate-gradient;
+  @apply bg-gradient-to-r from-primary via-blue-400 to-cyan-500 bg-clip-text text-transparent animate-gradient;
 }
 
 /* Cyberpunk grid */

@@ -584,7 +584,9 @@ export default function FreelanceSection() {
                               {[...Array(5)].map((_, i) => (
                                 <Star
                                   key={i}
-                                  className={`h-4 w-4 ${i < testimonials[currentTestimonial].rating ? "text-primary" : "text-muted"}`}
+                                  className={`h-4 w-4 ${
+                                    i < testimonials[currentTestimonial].rating ? "text-primary" : "text-muted"
+                                  }`}
                                   fill={i < testimonials[currentTestimonial].rating ? "currentColor" : "none"}
                                 />
                               ))}
@@ -696,7 +698,9 @@ export default function FreelanceSection() {
                           name="projectType"
                           value={formData.projectType}
                           onChange={handleChange}
-                          className={`w-full h-10 px-3 py-2 bg-background border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${errors.projectType ? "border-destructive" : ""}`}
+                          className={`w-full h-10 px-3 py-2 bg-background border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${
+                            errors.projectType ? "border-destructive" : ""
+                          }`}
                           required
                         >
                           <option value="">Select type</option>
@@ -720,7 +724,9 @@ export default function FreelanceSection() {
                           name="budget"
                           value={formData.budget}
                           onChange={handleChange}
-                          className={`w-full h-10 px-3 py-2 bg-background border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${errors.budget ? "border-destructive" : ""}`}
+                          className={`w-full h-10 px-3 py-2 bg-background border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${
+                            errors.budget ? "border-destructive" : ""
+                          }`}
                           required
                         >
                           <option value="">Select budget</option>
@@ -742,7 +748,9 @@ export default function FreelanceSection() {
                           name="timeline"
                           value={formData.timeline}
                           onChange={handleChange}
-                          className={`w-full h-10 px-3 py-2 bg-background border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${errors.timeline ? "border-destructive" : ""}`}
+                          className={`w-full h-10 px-3 py-2 bg-background border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${
+                            errors.timeline ? "border-destructive" : ""
+                          }`}
                           required
                         >
                           <option value="">Select timeline</option>
@@ -774,7 +782,7 @@ export default function FreelanceSection() {
                     </div>
 
                     <Button type="submit" className="w-full group relative overflow-hidden" disabled={isSubmitting}>
-                      <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-purple-500 group-hover:opacity-90 transition-opacity"></span>
+                      <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-blue-500 group-hover:opacity-90 transition-opacity"></span>
                       <span className="relative flex items-center justify-center">
                         {isSubmitting ? (
                           <>
