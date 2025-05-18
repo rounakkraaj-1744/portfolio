@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useInView } from "react-intersection-observer"
@@ -14,6 +15,7 @@ import { useToast } from "@/hooks/use-toast"
 import { ChevronLeft, ChevronRight, Star, Quote, Zap, CheckCircle2 } from "lucide-react"
 import { z } from "zod"
 
+// Form validation schema
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
   email: z.string().email({ message: "Please enter a valid email address" }),
@@ -24,6 +26,7 @@ const formSchema = z.object({
   description: z.string().min(10, { message: "Description must be at least 10 characters" }),
 })
 
+// Testimonial data
 const testimonials = [
   {
     id: 1,
@@ -108,6 +111,7 @@ export default function FreelanceSection() {
   }
 
   useEffect(() => {
+    // Auto-rotate testimonials
     testimonialInterval.current = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
     }, 5000)
@@ -123,6 +127,7 @@ export default function FreelanceSection() {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
 
+    // Clear error when user starts typing
     if (errors[name]) {
       setErrors((prev) => {
         const newErrors = { ...prev }
@@ -137,8 +142,7 @@ export default function FreelanceSection() {
       formSchema.parse(formData)
       setErrors({})
       return true
-    }
-    catch (error) {
+    } catch (error) {
       if (error instanceof z.ZodError) {
         const newErrors: Record<string, string> = {}
         error.errors.forEach((err) => {
@@ -167,6 +171,7 @@ export default function FreelanceSection() {
     setIsSubmitting(true)
 
     try {
+      // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1500))
 
       toast({
@@ -226,6 +231,7 @@ export default function FreelanceSection() {
 
   return (
     <section id="freelance" className="py-20 relative overflow-hidden noise">
+      {/* Background elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-background/95"></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
@@ -274,10 +280,17 @@ export default function FreelanceSection() {
                 <Card className="border border-border/50 hover:border-primary/20 transition-all hover:shadow-md group h-full">
                   <CardContent className="p-6 flex flex-col h-full">
                     <div className="mb-4 bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                      <svg xmlns="http://www.w3.org/2000/svg"
-                        width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" strokeWidth="2"
-                        strokeLinecap="round" strokeLinejoin="round" className="text-primary"
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-primary"
                       >
                         <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path>
                       </svg>

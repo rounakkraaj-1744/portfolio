@@ -1,77 +1,125 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import Link from "next/link"
-import { ArrowDown, Code, FileText, Github, Linkedin, Mail, Zap } from "lucide-react"
+import { ArrowDown, Github, Linkedin, Mail, FileText, Code, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
 import Image from "next/image"
-import { motion } from "framer-motion"
+import { motion, useScroll, useTransform } from "framer-motion"
+import { TypewriterEffect } from "@/components/ui/typewriter-effect"
 
-const phrases = ["Full Stack Developer", "Problem Solver", "Systems Designer", "Low Latency Programmer", "Web3 and Blockchain developer"]
+const phrases = [
+  "Full Stack Developer",
+  "Problem Solver",
+  "Systems Designer",
+  "Low Latency Programmer",
+  "Web3 and Blockchain Developer",
+]
 
 export default function Hero() {
-  const [typedText, setTypedText] = useState("")
-  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0)
-  const [isDeleting, setIsDeleting] = useState(false)
+  const [activePhrase, setActivePhrase] = useState(0)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  })
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
 
   useEffect(() => {
-    const typingSpeed = isDeleting ? 50 : 150
-    const deletingSpeed = 50
-    const pauseTime = 1500
+    const interval = setInterval(() => {
+      setActivePhrase((prev) => (prev + 1) % phrases.length)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [])
 
-    const currentPhrase = phrases[currentPhraseIndex]
-
-    const timeout = setTimeout(
-      () => {
-        if (isDeleting) {
-          setTypedText(currentPhrase.substring(0, typedText.length - 1))
-
-          if (typedText.length === 0) {
-            setIsDeleting(false)
-            setCurrentPhraseIndex((currentPhraseIndex + 1) % phrases.length)
-          }
-        }
-        else {
-          setTypedText(currentPhrase.substring(0, typedText.length + 1))
-          if (typedText.length === currentPhrase.length) {
-            setTimeout(() => {
-              setIsDeleting(true)
-            }, pauseTime)
-          }
-        }
-      },
-      isDeleting ? deletingSpeed : typingSpeed,
-    )
-
-    return () => clearTimeout(timeout)
-  }, [typedText, currentPhraseIndex, isDeleting])
+  const words = [
+    {
+      text: "Hi,",
+    },
+    {
+      text: "I'm",
+    },
+    {
+      text: "Rounakk",
+      className: "text-primary",
+    },
+    {
+      text: "Raaj",
+      className: "text-primary",
+    },
+    {
+      text: "Sabat",
+      className: "text-primary",
+    },
+  ]
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-16">
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/20 via-background to-background"></div>
-      <div className="container mx-auto px-4 py-16 grid md:grid-cols-2 gap-8 items-center">
-        <div className="flex flex-col gap-6">
+    <section
+      ref={containerRef}
+      id="home"
+      className="relative min-h-screen flex items-center pt-16 overflow-hidden cyberpunk-grid noise"
+    >
+      {/* Animated background elements */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-background/95"></div>
+
+        {/* Glowing orbs */}
+        <div className="absolute top-20 right-20 w-72 h-72 rounded-full blur-3xl bg-primary/10 animate-pulse-slow"></div>
+        <div className="absolute bottom-10 left-10 w-80 h-80 rounded-full blur-3xl bg-purple-500/5 animate-pulse-medium"></div>
+
+        {/* Grid lines */}
+        <div className="absolute inset-0 bg-grid-white/[0.02] -z-10" />
+      </div>
+
+      {/* Floating elements */}
+      <div className="absolute top-1/4 left-10 w-6 h-6 rounded-full bg-primary/20 animate-float-slow"></div>
+      <div className="absolute bottom-1/3 right-1/4 w-8 h-8 rounded-full bg-primary/30 animate-float-medium"></div>
+      <div className="absolute top-1/3 right-10 w-4 h-4 rounded-full bg-primary/20 animate-float-fast"></div>
+
+      {/* Code symbols floating */}
+      <div className="absolute top-1/4 right-1/3 text-primary/20 animate-float-slow text-xl">{"<>"}</div>
+      <div className="absolute bottom-1/4 left-1/3 text-primary/20 animate-float-medium text-xl">{"{ }"}</div>
+      <div className="absolute top-2/3 right-1/4 text-primary/20 animate-float-fast text-xl">{"( )"}</div>
+
+      <motion.div
+        style={{ y, opacity }}
+        className="container mx-auto px-4 py-16 grid md:grid-cols-2 gap-8 items-center"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col gap-6"
+        >
           <div>
-            <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold tracking-tight">Hi, I&apos;m Rounakk Raaj Sabat</h1>
-            <div className="h-12 mt-4">
-              <h2 className="text-xl md:text-2xl font-medium text-primary">
-                I&apos;m a{" "}
-                <span className="relative">
-                  {typedText}
-                  <span
-                    className={cn(
-                      "absolute ml-1 top-0 h-full w-[2px] bg-primary",
-                      typedText.length === phrases[currentPhraseIndex].length && !isDeleting ? "animate-blink" : "",
-                    )}
-                  ></span>
-                </span>
-              </h2>
-            </div>
-            <p className="mt-4 text-muted-foreground max-w-md">
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="mb-4">
+              <TypewriterEffect words={words} className="text-4xl md:text-5xl lg:text-6xl font-bold" />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.5 }}
+              className="h-12 mt-6 flex items-center"
+            >
+              <span className="text-xl md:text-2xl font-medium mr-2">I&apos;m a</span>
+              <span className="text-xl md:text-2xl font-medium text-primary relative">
+                {phrases[activePhrase]}
+                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary"></span>
+              </span>
+            </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.8 }}
+              className="mt-6 text-muted-foreground max-w-md text-lg"
+            >
               Turning complex problems into elegant, scalable solutions with a passion for creating impactful digital
               experiences that push technological boundaries.
-            </p>
+            </motion.p>
           </div>
 
           <motion.div
@@ -146,26 +194,74 @@ export default function Hero() {
               </Link>
             </Button>
           </motion.div>
-          </div>
-        <div className="hidden md:flex justify-center items-center">
-          <div className="relative w-80 h-80 rounded-full bg-gradient-to-br from-primary/80 to-primary/20 flex items-center justify-center">
-            <div className="absolute inset-3 rounded-full bg-background flex items-center justify-center overflow-hidden">
-              <div className="w-full h-full bg-muted flex items-center justify-center text-6xl">
-                <Image src="/myimage.jpg" alt="loading..." fill className="object-cover rounded-full" />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="hidden md:flex justify-center items-center"
+        >
+          <div className="relative w-80 h-80 tilt perspective-1000">
+            {/* Animated hexagon frame */}
+            <div className="absolute inset-0 animate-rotate-slow">
+              <svg viewBox="0 0 100 100" className="w-full h-full">
+                <polygon
+                  points="50 0, 93.3 25, 93.3 75, 50 100, 6.7 75, 6.7 25"
+                  fill="none"
+                  stroke="hsl(var(--primary))"
+                  strokeWidth="0.5"
+                  className="animate-pulse-slow"
+                />
+              </svg>
+            </div>
+
+            {/* Animated rings */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-purple-500/10 animate-pulse-slow"></div>
+            <div className="absolute inset-3 rounded-full bg-gradient-to-tr from-primary/20 to-purple-500/5 animate-pulse-medium"></div>
+            <div className="absolute inset-6 rounded-full bg-gradient-to-tl from-primary/10 to-purple-500/5 animate-pulse-fast"></div>
+
+            {/* Profile image */}
+            <div className="absolute inset-9 rounded-full bg-background flex items-center justify-center overflow-hidden tilt-inner">
+              <div className="w-full h-full bg-muted flex items-center justify-center text-6xl relative">
+                <Image
+                  src="/myimage.jpg"
+                  alt="Rounakk Raaj Sabat"
+                  fill
+                  className="object-cover rounded-full"
+                  style={{
+                    filter: "contrast(1.1) brightness(1.1)",
+                    boxShadow: "0 0 20px rgba(var(--primary), 0.5)",
+                  }}
+                />
               </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <Button variant="ghost" size="icon" asChild>
+            {/* Decorative elements */}
+            <div className="absolute -top-4 -right-4 w-8 h-8 rounded-full bg-primary/30 animate-float-slow"></div>
+            <div className="absolute -bottom-4 -left-4 w-6 h-6 rounded-full bg-purple-500/30 animate-float-medium"></div>
+          </div>
+        </motion.div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 2.7 }}
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce"
+      >
+        <Button
+          variant="ghost"
+          size="icon"
+          className="rounded-full hover:bg-primary/10 hover:text-primary transition-all"
+          asChild
+        >
           <Link href="#about">
             <ArrowDown className="h-6 w-6" />
             <span className="sr-only">Scroll Down</span>
           </Link>
         </Button>
-      </div>
+      </motion.div>
     </section>
   )
 }
