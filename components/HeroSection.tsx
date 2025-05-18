@@ -2,10 +2,11 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
+import { ArrowDown, Code, FileText, Github, Linkedin, Mail, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
+import { motion } from "framer-motion"
 
 const phrases = ["Full Stack Developer", "Problem Solver", "Systems Designer", "Low Latency Programmer", "Web3 and Blockchain developer"]
 
@@ -68,46 +69,89 @@ export default function Hero() {
               </h2>
             </div>
             <p className="mt-4 text-muted-foreground max-w-md">
-              Turning complex problems into efficient, scalable solutions.
+              Turning complex problems into elegant, scalable solutions with a passion for creating impactful digital
+              experiences that push technological boundaries.
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-4">
-            <Button asChild size="lg">
-              <Link href="#contact">Contact Me</Link>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 2.1 }}
+            className="flex flex-wrap gap-4"
+          >
+            <Button asChild size="lg" className="group relative overflow-hidden">
+              <Link href="#contact">
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-purple-500 group-hover:opacity-90 transition-opacity"></span>
+                <span className="relative flex items-center">
+                  <Zap className="mr-2 h-5 w-5 group-hover:animate-pulse" />
+                  Contact Me
+                </span>
+              </Link>
             </Button>
-            <Button asChild variant="outline" size="lg">
-              <Link href="#projects">View Projects</Link>
+            <Button asChild variant="outline" size="lg" className="group relative overflow-hidden">
+              <Link href="#projects">
+                <span className="absolute inset-0 w-0 h-full bg-primary/20 group-hover:w-full transition-all duration-300"></span>
+                <span className="relative flex items-center">
+                  <Code className="mr-2 h-5 w-5" />
+                  View Projects
+                </span>
+              </Link>
             </Button>
-          </div>
+            <Button asChild variant="ghost" size="lg" className="group">
+              <Link href="/resume.pdf" target="_blank">
+                <FileText className="mr-2 h-5 w-5 group-hover:text-primary transition-colors" />
+                <span className="group-hover:text-primary transition-colors">Resume</span>
+              </Link>
+            </Button>
+          </motion.div>
 
-          <div className="flex gap-4 mt-2">
-            <Button variant="ghost" size="icon" asChild>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 2.4 }}
+            className="flex gap-4 mt-2"
+          >
+            <Button
+              variant="ghost"
+              size="icon"
+              className="rounded-full hover:bg-primary/10 hover:text-primary transition-all group"
+              asChild
+            >
               <Link href="https://github.com/" target="_blank" rel="noopener noreferrer">
-                <Github className="h-5 w-5" />
+                <Github className="h-5 w-5 group-hover:scale-110 transition-transform" />
                 <span className="sr-only">GitHub</span>
               </Link>
             </Button>
-            <Button variant="ghost" size="icon" asChild>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="rounded-full hover:bg-primary/10 hover:text-primary transition-all group"
+              asChild
+            >
               <Link href="https://www.linkedin.com/in/rounakk-raaj-745rrs/" target="_blank" rel="noopener noreferrer">
-                <Linkedin className="h-5 w-5" />
+                <Linkedin className="h-5 w-5 group-hover:scale-110 transition-transform" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
             </Button>
-            <Button variant="ghost" size="icon" asChild>
-              <Link href="mailto:contact@example.com">
-                <Mail className="h-5 w-5" />
+            <Button
+              variant="ghost"
+              size="icon"
+              className="rounded-full hover:bg-primary/10 hover:text-primary transition-all group"
+              asChild
+            >
+              <Link href="mailto:rounakkraaj707@gmail.com">
+                <Mail className="h-5 w-5 group-hover:scale-110 transition-transform" />
                 <span className="sr-only">Email</span>
               </Link>
             </Button>
+          </motion.div>
           </div>
-        </div>
-
         <div className="hidden md:flex justify-center items-center">
           <div className="relative w-80 h-80 rounded-full bg-gradient-to-br from-primary/80 to-primary/20 flex items-center justify-center">
             <div className="absolute inset-3 rounded-full bg-background flex items-center justify-center overflow-hidden">
               <div className="w-full h-full bg-muted flex items-center justify-center text-6xl">
-                <Image src="/myimage.jpg" alt="loading..." fill className="object-cover rounded-full"/>
+                <Image src="/myimage.jpg" alt="loading..." fill className="object-cover rounded-full" />
               </div>
             </div>
           </div>
