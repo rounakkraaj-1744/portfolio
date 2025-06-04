@@ -32,68 +32,54 @@ export default function Experience() {
 
   const experiences = [
     {
-      title: "Frontend Development Intern",
-      company: "TechSolutions Inc.",
-      period: "May 2023 - Aug 2023",
+      title: "Chief Technology Offier (CTO)",
+      company: "BOOM Entertainment",
+      period: "June 2025 - Present",
       description:
-        "Led the development of responsive UI components using React and Next.js. Implemented state management with Redux and optimized application performance. Collaborated with the design team to ensure pixel-perfect implementation of mockups.",
-      skills: ["React", "Next.js", "Redux", "TailwindCSS", "TypeScript"],
+        "I am currently the founding Chief Technology Officer (CTO) at [Startup Name], a decentralized entertainment platform focused on empowering YouTube creators and short-form content. As the first tech member, I am leading the complete development of the MVP — from architecting scalable backend systems to building the frontend and setting up cloud infrastructure for high-concurrency video streaming. I collaborate closely with the CEO on key technical and strategic decisions, including roadmap planning, hiring, and scaling. Post-MVP, I’ll be expanding the tech team and establishing engineering best practices to support rapid growth and investor-backed scaling.",
+      skills: ["Next.js", "NestJS", "State Management", "System Design", "Problem Solving", "Leadership"],
     },
     {
-      title: "Backend Engineering Intern",
-      company: "DataSystems Ltd.",
-      period: "Jan 2023 - Apr 2023",
+      title: "Freelance Web Developer",
+      company: "Self-Employed",
+      period: "May 2024 - Apr 2025",
       description:
-        "Designed and implemented RESTful APIs using Node.js and Express. Worked with MongoDB and PostgreSQL databases to optimize query performance. Implemented authentication and authorization systems using JWT and OAuth2.0.",
-      skills: ["Node.js", "Express", "MongoDB", "PostgreSQL", "JWT", "Docker"],
-    },
-    {
-      title: "Software Development Intern",
-      company: "Tech Innovators",
-      period: "May 2022 - Aug 2022",
-      description:
-        "Worked on developing and maintaining web applications using React and Node.js. Collaborated with the team to implement new features and fix bugs.",
-      skills: ["React", "Node.js", "MongoDB", "Git"],
-    },
-    {
-      title: "Full Stack Developer Intern",
-      company: "Digital Solutions Agency",
-      period: "Jan 2022 - Apr 2022",
-      description:
-        "Developed and maintained client websites and web applications. Implemented responsive designs and integrated third-party APIs. Worked with a team of designers and developers to deliver high-quality solutions.",
-      skills: ["JavaScript", "React", "Node.js", "Express", "MongoDB"],
+        "Delivered custom web solutions for 10+ clients across diverse industries and individuals. Designed and developed high-performance full-stack applications with a focus on scalability, Implemented modern frontend animations and UI/UX best practices to create seamless user experiences. Built robust backends with Node.js, Express, NestJS, and integrated relational and NoSQL databases (e.g., PostgreSQL, MongoDB). Managed CI/CD pipelines, containerization (Docker), cloud deployments (e.g., AWS, Vercel), and infrastructure as code.Integrated real-time features, email services, and third-party APIs. Set up monitoring and logging tools (e.g., Grafana, Prometheus, Sentry) to ensure performance and observability.",
+      skills: ["React.js", "Express.js", "NextJS", "NestJS", "MongoDB", "PostgreSQL", "Docker", "Kubernetes", "AWS"],
     },
     {
       title: "Web Development Intern",
-      company: "Creative Web Studio",
-      period: "Sep 2021 - Dec 2021",
+      company: "Suminite",
+      period: "April 2025 - May 2025",
       description:
-        "Assisted in the development of client websites using modern web technologies. Created responsive layouts and implemented interactive features. Collaborated with designers to translate mockups into functional websites.",
-      skills: ["HTML", "CSS", "JavaScript", "React", "Responsive Design"],
+        "Developed and maintained scalable frontend features using Next.js, focusing on clean UI/UX and responsive design principles. Integrated secure payment gateways including Razorpay and PhonePe, ensuring seamless transaction flows. Built and optimized RESTful APIs using Express.js, with thorough API testing and validation. Utilized MongoDB for efficient data modeling, storage, and retrieval, ensuring optimal performance for dynamic content. Collaborated across teams to deliver full-stack solutions in an agile environment, with a focus on performance, scalability, and maintainability.- MongoDB database for fetching and storing data",
+      skills: ["NextJS", "Express.js", "MongoDB", "Git/Github", "Razorpay API", "Phonepe API"],
     },
     {
-      title: "Open Source Contributor",
-      company: "Various Projects",
-      period: "Jan 2021 - Present",
+      title: "Technical Instructor",
+      company: "Self-Employed",
+      period: "Jan 2024 - May 2025",
       description:
-        "Actively contributing to open-source projects, fixing issues, and implementing new features. Collaborated with developers from around the world.",
-      skills: ["Java", "Spring Boot", "JavaScript", "GitHub"],
+        "Taught Java and Data Structures & Algorithms to students through self-created courses and tutorials. Simplified complex programming concepts to make them more accessible for beginners. Created structured learning paths, coding exercises, and real-world problem-solving sessions. Managed content distribution and student engagement independently.",
+      skills: ["Java", "Data Structures and Algorithms", "LeetCode", "Problem Solving"],
     },
   ]
 
   const education = [
     {
-      degree: "Bachelor of Technology in Computer Science",
-      institution: "University of Technology",
+      degree: "BTech in Computer Science and Engineering",
+      institution: "NIST University",
       period: "2021 - 2025 (Expected)",
       description:
-        "Focusing on computer science fundamentals, data structures, algorithms, and software engineering principles.",
+        "Focusing on computer science fundamentals, data structures, algorithms, computer architecture and software engineering principles.",
       courses: [
         "Data Structures & Algorithms",
         "Operating Systems",
         "Database Management",
         "Computer Networks",
         "Software Engineering",
+        "Machine Learning",
+        "Computer Organisation and Architecture"
       ],
     },
   ]
@@ -205,7 +191,7 @@ export default function Experience() {
                         <h4 className="font-medium group-hover:text-primary transition-colors">
                           Data Structures and Algorithms
                         </h4>
-                        <p className="text-sm text-muted-foreground">Coursera</p>
+                        <p className="text-sm text-muted-foreground">IT World Education</p>
                       </div>
                       <Badge className="bg-primary/5">2023</Badge>
                     </li>
@@ -214,16 +200,16 @@ export default function Experience() {
                         <h4 className="font-medium group-hover:text-primary transition-colors">
                           Full Stack Web Development
                         </h4>
-                        <p className="text-sm text-muted-foreground">Udemy</p>
+                        <p className="text-sm text-muted-foreground">100xDevs</p>
                       </div>
                       <Badge className="bg-primary/5">2022</Badge>
                     </li>
                     <li className="flex justify-between items-center">
                       <div>
                         <h4 className="font-medium group-hover:text-primary transition-colors">
-                          Cloud Computing Fundamentals
+                          Cloud Computing and DevOps
                         </h4>
-                        <p className="text-sm text-muted-foreground">AWS Training</p>
+                        <p className="text-sm text-muted-foreground">IT World Education</p>
                       </div>
                       <Badge className="bg-primary/5">2022</Badge>
                     </li>

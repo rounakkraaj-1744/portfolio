@@ -184,14 +184,6 @@ export default function Projects() {
                     <CardContent className="flex-grow">
                       <CardDescription className="text-sm">{project.description}</CardDescription>
                     </CardContent>
-                    <CardFooter className="flex gap-2">
-                      <Button asChild variant="outline" size="sm" className="rounded-full">
-                        <Link href={project.github} target="_blank" rel="noopener noreferrer">
-                          <Github className="h-4 w-4 mr-2" />
-                          View Code
-                        </Link>
-                      </Button>
-                    </CardFooter>
                   </Card>
                 </motion.div>
               ))}

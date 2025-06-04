@@ -119,7 +119,7 @@ export default function About() {
             >
               <h4 className="font-bold mb-2 group-hover:text-primary transition-colors">Interests</h4>
               <p className="text-sm text-muted-foreground">
-                Blockchain • Low Latency Programming • Open Source Contribution • System Design • Cloud Architecture •
+                Blockchain • Low Latency Programming • Open Source Contributor • System Design • Cloud Architecture •
                 AI/ML Integration
               </p>
             </motion.div>
