@@ -19,6 +19,7 @@ export const TypewriterEffect: React.FC<TypewriterEffectProps> = ({ words, class
   const [wordIndex, setWordIndex] = useState(0)
   const [charIndex, setCharIndex] = useState(0)
   const [isDeleting, setIsDeleting] = useState(false)
+  const [isPaused, setIsPaused] = useState(false)
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout
@@ -32,8 +33,11 @@ export const TypewriterEffect: React.FC<TypewriterEffectProps> = ({ words, class
         setCharIndex((prevIndex) => prevIndex + 1)
 
         if (charIndex === currentWord.length) {
-          setIsDeleting(true)
-          timeoutId = setTimeout(() => {}, 1000) // Pause at the end of the word
+          setIsPaused(true)
+          timeoutId = setTimeout(() => {
+            setIsPaused(false)
+            setIsDeleting(true)
+          }, 2000) // Longer pause at the end of the word
         }
       } else {
         setDisplayText(currentWord.substring(0, charIndex - 1))
@@ -42,14 +46,23 @@ export const TypewriterEffect: React.FC<TypewriterEffectProps> = ({ words, class
         if (charIndex === 0) {
           setIsDeleting(false)
           setWordIndex((prevIndex) => (prevIndex + 1) % words.length)
+          // Add a small pause before starting to type the next word
+          setIsPaused(true)
+          timeoutId = setTimeout(() => {
+            setIsPaused(false)
+          }, 500)
         }
       }
     }
 
-    timeoutId = setTimeout(type, isDeleting ? 50 : 100) // Typing speed
+    if (!isPaused) {
+      // Adjust typing speed based on whether we're typing or deleting
+      const typingSpeed = isDeleting ? 50 : 150 // Slower typing, moderate deletion speed
+      timeoutId = setTimeout(type, typingSpeed)
+    }
 
     return () => clearTimeout(timeoutId)
-  }, [wordIndex, charIndex, isDeleting, words])
+  }, [wordIndex, charIndex, isDeleting, isPaused, words])
 
   return (
     <span className={className}>

@@ -13,7 +13,6 @@ const phrases = [
   "Problem Solver",
   "Systems Designer",
   "Low Latency Programmer",
-  "Web3 and Blockchain Developer",
 ]
 
 export default function Hero() {
@@ -26,34 +25,6 @@ export default function Hero() {
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActivePhrase((prev) => (prev + 1) % phrases.length)
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [])
-
-  const words = [
-    {
-      text: "Hi,",
-    },
-    {
-      text: "I'm",
-    },
-    {
-      text: "Rounakk",
-      className: "text-primary",
-    },
-    {
-      text: "Raaj",
-      className: "text-primary",
-    },
-    {
-      text: "Sabat",
-      className: "text-primary",
-    },
-  ]
 
   return (
     <section
@@ -94,8 +65,8 @@ export default function Hero() {
           className="flex flex-col gap-6"
         >
           <div>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="mb-4">
-              <TypewriterEffect words={words} className="text-4xl md:text-5xl lg:text-6xl font-bold" />
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="mb-4 text-5xl font-bold">
+              Hi, I'm Rounakk Raaj Sabat
             </motion.div>
 
             <motion.div
