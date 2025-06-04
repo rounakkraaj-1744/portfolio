@@ -90,7 +90,7 @@ export default function Navbar() {
           <ThemeToggle />
           <Button asChild size="sm" className="group relative overflow-hidden">
             <Link href="#contact">
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-purple-500 group-hover:opacity-90 transition-opacity"></span>
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-blue-500 group-hover:opacity-90 transition-opacity"></span>
               <span className="relative flex items-center">
                 <Zap className="mr-2 h-4 w-4 group-hover:animate-pulse" />
                 Get In Touch

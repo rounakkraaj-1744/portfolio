@@ -60,8 +60,8 @@ export default function About() {
             animate={inView ? "visible" : "hidden"}
             className="space-y-6"
           >
-            <motion.h3 variants={itemVariants} className="text-2xl font-semibold">
-              Aspiring Software Engineer, System Programmer & Problem Solver
+            <motion.h3 variants={itemVariants} className="text-2xl font-semibold mb-8 neon-text text-center">
+              Aspiring Software Engineer and System Programmer
             </motion.h3>
             <motion.p variants={itemVariants} className="text-muted-foreground">
               I am a passionate Computer Science student with a deep interest in full-stack development, mobile app

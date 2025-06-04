@@ -2,21 +2,20 @@
 
 import { useEffect, useState, useRef } from "react"
 import Link from "next/link"
-import { ArrowDown, Github, Linkedin, Mail, FileText, Code, Zap } from "lucide-react"
+import { ArrowDown, Github, Linkedin, Mail, FileText, Code, Zap, Download, Eye } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import Image from "next/image"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { TypewriterEffect } from "./ui/typewriter-effect"
 
-const phrases = [
-  "Full Stack Developer",
-  "Problem Solver",
-  "Systems Designer",
-  "Low Latency Programmer",
-]
+const phrases = ["Full Stack Developer", "Problem Solver", "Systems Designer", "Low Latency Programmer"]
 
 export default function Hero() {
-  const [activePhrase, setActivePhrase] = useState(0)
+  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0)
+  const [currentText, setCurrentText] = useState("")
+  const [isDeleting, setIsDeleting] = useState(false)
+  const [showCursor, setShowCursor] = useState(true)
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -25,6 +24,39 @@ export default function Hero() {
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
+
+  // Typewriter effect
+  useEffect(() => {
+    const currentPhrase = phrases[currentPhraseIndex]
+    const typingSpeed = isDeleting ? 50 : 100
+    const pauseTime = isDeleting ? 500 : 2000
+
+    const timeout = setTimeout(() => {
+      if (!isDeleting && currentText === currentPhrase) {
+        setTimeout(() => setIsDeleting(true), pauseTime)
+      } else if (isDeleting && currentText === "") {
+        setIsDeleting(false)
+        setCurrentPhraseIndex((prev) => (prev + 1) % phrases.length)
+      } else {
+        setCurrentText(
+          isDeleting
+            ? currentPhrase.substring(0, currentText.length - 1)
+            : currentPhrase.substring(0, currentText.length + 1),
+        )
+      }
+    }, typingSpeed)
+
+    return () => clearTimeout(timeout)
+  }, [currentText, isDeleting, currentPhraseIndex])
+
+  // Blinking cursor effect
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setShowCursor((prev) => !prev)
+    }, 530)
+
+    return () => clearInterval(cursorInterval)
+  }, [])
 
   return (
     <section
@@ -65,8 +97,16 @@ export default function Hero() {
           className="flex flex-col gap-6"
         >
           <div>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="mb-4 text-5xl font-bold">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              className="mb-4 text-5xl font-bold"
+            >
               Hi, I'm Rounakk Raaj Sabat
+              <span
+                className={`inline-block w-1 h-12 bg-primary ml-2 ${showCursor ? "opacity-100" : "opacity-0"} transition-opacity`}
+              ></span>
             </motion.div>
 
             <motion.div
@@ -76,9 +116,11 @@ export default function Hero() {
               className="h-12 mt-6 flex items-center"
             >
               <span className="text-xl md:text-2xl font-medium mr-2">I&apos;m a</span>
-              <span className="text-xl md:text-2xl font-medium text-primary relative">
-                {phrases[activePhrase]}
-                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary"></span>
+              <span className="text-xl md:text-2xl font-medium text-primary relative min-w-[300px]">
+                {currentText}
+                <span
+                  className={`inline-block w-0.5 h-6 bg-primary ml-1 ${showCursor ? "opacity-100" : "opacity-0"} transition-opacity`}
+                ></span>
               </span>
             </motion.div>
 
@@ -117,10 +159,14 @@ export default function Hero() {
                 </span>
               </Link>
             </Button>
-            <Button asChild variant="ghost" size="lg" className="group">
-              <Link href="/resume.pdf" target="_blank">
-                <FileText className="mr-2 h-5 w-5 group-hover:text-primary transition-colors" />
-                <span className="group-hover:text-primary transition-colors">Resume</span>
+            
+            <Button asChild variant="outline" size="lg" className="group relative overflow-hidden">
+              <Link href="#projects">
+                <span className="absolute inset-0 w-0 h-full bg-primary/20 group-hover:w-full transition-all duration-300"></span>
+                <span className="relative flex items-center">
+                  <FileText className="mr-2 h-5 w-5" />
+                  Resume
+                </span>
               </Link>
             </Button>
           </motion.div>
@@ -134,7 +180,7 @@ export default function Hero() {
             <Button
               variant="ghost"
               size="icon"
-              className="rounded-full hover:bg-primary/10 hover:text-primary transition-all group"
+              className="rounded-full hover:bg-[#333] hover:text-white transition-all group"
               asChild
             >
               <Link href="https://github.com/" target="_blank" rel="noopener noreferrer">
@@ -145,7 +191,7 @@ export default function Hero() {
             <Button
               variant="ghost"
               size="icon"
-              className="rounded-full hover:bg-primary/10 hover:text-primary transition-all group"
+              className="rounded-full hover:bg-[#0077B5] hover:text-white transition-all group"
               asChild
             >
               <Link href="https://www.linkedin.com/in/rounakk-raaj-745rrs/" target="_blank" rel="noopener noreferrer">
@@ -156,7 +202,7 @@ export default function Hero() {
             <Button
               variant="ghost"
               size="icon"
-              className="rounded-full hover:bg-primary/10 hover:text-primary transition-all group"
+              className="rounded-full hover:bg-[#EA4335] hover:text-white transition-all group"
               asChild
             >
               <Link href="mailto:rounakkraaj707@gmail.com">
@@ -194,7 +240,7 @@ export default function Hero() {
 
             {/* Profile image */}
             <div className="absolute inset-9 rounded-full bg-background flex items-center justify-center overflow-hidden tilt-inner">
-              <div className="w-full h-full bg-muted flex items-center justify-center text-6xl relative">
+              <div className="w-full h-full bg-muted flex items-center justify-center text-9xl relative">
                 <Image
                   src="/myimage.jpg"
                   alt="Rounakk Raaj Sabat"
