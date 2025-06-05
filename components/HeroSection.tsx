@@ -2,10 +2,8 @@
 
 import { useEffect, useState, useRef } from "react"
 import Link from "next/link"
-import { ArrowDown, Github, Linkedin, Mail, FileText, Code, Zap, Download, Eye } from "lucide-react"
+import { ArrowDown, Github, Linkedin, Mail, FileText, Code, Zap} from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import Image from "next/image"
 import { motion, useScroll, useTransform } from "framer-motion"
 
@@ -103,7 +101,7 @@ export default function Hero() {
               transition={{ duration: 1 }}
               className="mb-4 text-5xl font-bold"
             >
-              Hi, I'm Rounakk Raaj Sabat
+              Hi, I&pos;m Rounakk Raaj Sabat
               <span
                 className={`inline-block w-1 h-12 bg-primary ml-2 ${showCursor ? "opacity-100" : "opacity-0"} transition-opacity`}
               ></span>

@@ -26,7 +26,6 @@ export const TypewriterEffect: React.FC<TypewriterEffectProps> = ({ words, class
 
     const type = () => {
       const currentWord = words[wordIndex].text
-      const currentClassName = words[wordIndex].className || ""
 
       if (!isDeleting) {
         setDisplayText(currentWord.substring(0, charIndex + 1))

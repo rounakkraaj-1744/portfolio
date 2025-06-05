@@ -26,7 +26,7 @@ export default function TermsPage() {
           <section className="mb-8">
             <h2 className="text-2xl font-semibold mb-4">1. Introduction</h2>
             <p>
-              Welcome to Rounakk Raaj Sabat's portfolio website. These Terms and Conditions govern your use of our
+              Welcome to Rounakk Raaj Sabat&apos;s portfolio website. These Terms and Conditions govern your use of our
               website and services. By accessing or using our website, you agree to be bound by these Terms. If you
               disagree with any part of the terms, you may not access the website.
             </p>
@@ -51,13 +51,13 @@ export default function TermsPage() {
           <section className="mb-8">
             <h2 className="text-2xl font-semibold mb-4">3. User Content</h2>
             <p>
-              In these Terms and Conditions, "User Content" shall mean any audio, video, text, images, or other material
+              In these Terms and Conditions, &quot;User Content&quot; shall mean any audio, video, text, images, or other material
               you choose to submit to this website. By submitting User Content, you grant Rounakk Raaj Sabat a
               non-exclusive, worldwide, irrevocable, royalty-free license to use, reproduce, adapt, publish, translate,
               and distribute it in any media.
             </p>
             <p className="mt-4">
-              User Content must not be illegal or unlawful, must not infringe any third party's legal rights, and must
+              User Content must not be illegal or unlawful, must not infringe any third party&apos;s legal rights, and must
               not be capable of giving rise to legal action whether against you or Rounakk Raaj Sabat or a third party.
             </p>
           </section>
@@ -76,7 +76,7 @@ export default function TermsPage() {
             <h2 className="text-2xl font-semibold mb-4">5. Indemnification</h2>
             <p>
               You hereby indemnify to the fullest extent Rounakk Raaj Sabat from and against any and all liabilities,
-              costs, demands, causes of action, damages, and expenses (including reasonable attorney's fees) arising out
+              costs, demands, causes of action, damages, and expenses (including reasonable attorney&apos;s fees) arising out
               of or in any way related to your breach of any of the provisions of these Terms.
             </p>
           </section>

@@ -135,6 +135,7 @@ export default function Contact() {
         description: "Failed to send your message. Please try again later.",
         variant: "destructive",
       })
+      console.log (error)
     } finally {
       setIsSubmitting(false)
     }

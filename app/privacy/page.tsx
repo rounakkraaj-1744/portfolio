@@ -26,7 +26,7 @@ export default function PrivacyPage() {
           <section className="mb-8">
             <h2 className="text-2xl font-semibold mb-4">1. Introduction</h2>
             <p>
-              Welcome to Rounakk Raaj Sabat's portfolio website. I respect your privacy and am committed to protecting
+              Welcome to Rounakk Raaj Sabat&apos;s portfolio website. I respect your privacy and am committed to protecting
               your personal data. This privacy policy will inform you about how I look after your personal data when you
               visit my website and tell you about your privacy rights and how the law protects you.
             </p>
