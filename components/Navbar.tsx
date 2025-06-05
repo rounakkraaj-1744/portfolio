@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Menu, X, Code, Zap } from "lucide-react"
-import { ThemeToggle } from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { motion, AnimatePresence } 
@@ -87,7 +86,6 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
-          <ThemeToggle />
           <Button asChild size="sm" className="group relative overflow-hidden">
             <Link href="#contact">
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-blue-500 group-hover:opacity-90 transition-opacity"></span>
@@ -100,7 +98,6 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-4 md:hidden">
-          <ThemeToggle />
           <Button variant="ghost" size="icon" onClick={toggleMenu} aria-label="Toggle Menu">
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
