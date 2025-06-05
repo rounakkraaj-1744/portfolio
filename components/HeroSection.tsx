@@ -101,7 +101,7 @@ export default function Hero() {
               transition={{ duration: 1 }}
               className="mb-4 text-5xl font-bold"
             >
-              Hi, I&pos;m Rounakk Raaj Sabat
+              Hi, I&apos;m Rounakk Raaj Sabat
               <span
                 className={`inline-block w-1 h-12 bg-primary ml-2 ${showCursor ? "opacity-100" : "opacity-0"} transition-opacity`}
               ></span>
