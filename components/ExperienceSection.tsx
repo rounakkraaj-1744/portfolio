@@ -33,12 +33,12 @@ export default function Experience() {
 
   const experiences = [
     {
-      title: "Chief Technology Offier (CTO)",
-      company: "BOOM Entertainment",
-      period: "June 2025 - Present",
+      title: "SDE-1 Intern",
+      company: "Strmly: Decentralized Entertainment",
+      period: "June 2025 - July 2024",
       description:
-        "I am currently the founding Chief Technology Officer (CTO) at [Startup Name], a decentralized entertainment platform focused on empowering YouTube creators and short-form content. As the first tech member, I am leading the complete development of the MVP — from architecting scalable backend systems to building the frontend and setting up cloud infrastructure for high-concurrency video streaming. I collaborate closely with the CEO on key technical and strategic decisions, including roadmap planning, hiring, and scaling. Post-MVP, I'll be expanding the tech team and establishing engineering best practices to support rapid growth and investor-backed scaling.",
-      skills: ["Next.js", "NestJS", "State Management", "System Design", "Problem Solving", "Leadership"],
+        "Acted as the sole developer and founding engineer during MVP phase. Took end-to-end ownership of product development, architecture, deployment, and collaboration with CEO/founder. Led the end-to-end development of a full-stack video platform. Owned both backend (NestJS, MongoDB, Redis, AWS) and pretty minimal frontend (Next.js, Tailwind) development.",
+      skills: ["Next.js", "NestJS", "State Management", "System Design", "MongoDB", "Redis", "AWS S3", "Railway", "Vercel"],
     },
     {
       title: "Freelance Web Developer",
@@ -87,7 +87,6 @@ export default function Experience() {
 
   return (
     <section id="experience" className="py-20 relative overflow-hidden cyberpunk-grid">
-      {/* Background elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-background/95"></div>
         <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
@@ -111,7 +110,6 @@ export default function Experience() {
           </motion.p>
         </motion.div>
 
-        {/* Work Experience Timeline */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -123,25 +121,33 @@ export default function Experience() {
           </motion.h3>
 
           <div className="relative">
-            {/* Timeline center line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary/30 via-primary to-primary/30 rounded-full"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary/30 via-primary to-primary/30 rounded-full hidden md:block"></div>
+            
+            <div className="absolute left-4 top-0 h-full w-1 bg-gradient-to-b from-primary/30 via-primary to-primary/30 rounded-full md:hidden"></div>
 
-            {/* Experience items */}
+
             {experiences.map((exp, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className={`mb-12 flex items-center ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"} relative`}
-              >
+              <motion.div key={index} variants={itemVariants}
+                className={`mb-12 flex items-center relative 
+                            ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} 
+                            flex-row`}>
                 {/* Timeline dot */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full bg-primary shadow-[0_0_10px_rgba(var(--primary),0.7)] z-10"></div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full bg-primary shadow-[0_0_10px_rgba(var(--primary),0.7)] z-10 md:block hidden"></div> {/* Hidden on mobile */}
+                
+                {/* Mobile-specific timeline dot */}
+                <div className="absolute left-4 transform -translate-x-1/2 w-5 h-5 rounded-full bg-primary shadow-[0_0_10px_rgba(var(--primary),0.7)] z-10 md:hidden block"></div>
+
 
                 {/* Content */}
-                <div className={`w-[calc(50%-2rem)] ${index % 2 === 0 ? "mr-auto pr-8" : "ml-auto pl-8"}`}>
-                  <Card className="border border-border/50 hover:border-primary/50 transition-all hover:shadow-[0_0_15px_rgba(var(--primary),0.15)] group overflow-visible transform hover:scale-105 hover:-rotate-1 transition-transform duration-300">
-                    {/* Connector line */}
+                <div className={`w-full md:w-[calc(50%-2rem)] 
+                            ${index % 2 === 0 ? "md:mr-auto md:pr-8" : "md:ml-auto md:pl-8"} 
+                            ml-8 pr-4`}> {/* Full width on mobile, always left-aligned */}
+                  <Card className="border border-border/50 hover:border-primary/50 hover:shadow-[0_0_15px_rgba(var(--primary),0.15)] group overflow-visible transform hover:scale-105 hover:-rotate-1 transition-transform duration-300">
+                    {/* Connector line - adjusted for mobile */}
                     <div
-                      className={`absolute top-1/2 -translate-y-1/2 w-8 h-0.5 bg-primary ${index % 2 === 0 ? "right-0 translate-x-full" : "left-0 -translate-x-full"}`}
+                      className={`absolute top-1/2 -translate-y-1/2 w-4 h-0.5 bg-primary 
+                                  ${index % 2 === 0 ? "md:right-0 md:translate-x-full" : "md:left-0 md:-translate-x-full"}
+                                  left-0 -translate-x-full md:w-8`} // On mobile, always left, shorter line
                     ></div>
 
                     <CardHeader>
@@ -184,7 +190,7 @@ export default function Experience() {
             <div className="space-y-6">
               {education.map((edu, index) => (
                 <motion.div key={index} variants={itemVariants}>
-                  <Card className="border border-border/50 hover:border-primary/20 transition-all hover:shadow-md group relative overflow-hidden transform hover:scale-105 hover:rotate-1 transition-transform duration-300">
+                  <Card className="border border-border/50 hover:border-primary/20 hover:shadow-md group relative overflow-hidden transform hover:scale-105 hover:rotate-1 transition-transform duration-300">
                     {/* Decorative corner accent */}
                     <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden">
                       <div className="absolute top-0 right-0 w-16 h-16 bg-primary/10 rotate-45 transform origin-bottom-left"></div>
@@ -222,7 +228,7 @@ export default function Experience() {
             <motion.h3 variants={itemVariants} className="text-2xl font-semibold mb-6 neon-text">
               Certifications
             </motion.h3>
-            <Card className="border border-border/50 hover:border-primary/20 transition-all hover:shadow-md group relative overflow-hidden transform hover:scale-105 hover:rotate-1 transition-transform duration-300">
+            <Card className="border border-border/50 hover:border-primary/20 hover:shadow-md group relative overflow-hidden transform hover:scale-105 hover:rotate-1 transition-transform duration-300">
               {/* Decorative side accent */}
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-primary/30 via-primary to-primary/30"></div>
 

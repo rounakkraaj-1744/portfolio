@@ -88,6 +88,37 @@ export default function Hero() {
         style={{ y, opacity }}
         className="container mx-auto px-4 py-16 grid md:grid-cols-2 gap-8 items-center"
       >
+        {/* IMAGE SECTION - MOVED TO THE TOP */}
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.3 }}
+          className="flex justify-center items-center order-first md:order-none"> {/* Added order-first for mobile */}
+          <div className="relative w-80 h-80 tilt perspective-1000">
+            <div className="absolute inset-0 animate-rotate-slow">
+              <svg viewBox="0 0 100 100" className="w-full h-full">
+                <polygon points="50 0, 93.3 25, 93.3 75, 50 100, 6.7 75, 6.7 25" fill="none" stroke="hsl(var(--primary))"
+                  strokeWidth="0.5" className="animate-pulse-slow"/>
+              </svg>
+            </div>
+
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-blue-500/10 animate-pulse-slow"></div>
+            <div className="absolute inset-3 rounded-full bg-gradient-to-tr from-primary/20 to-blue-500/5 animate-pulse-medium"></div>
+            <div className="absolute inset-6 rounded-full bg-gradient-to-tl from-primary/10 to-blue-500/5 animate-pulse-fast"></div>
+
+            <div className="absolute inset-9 rounded-full bg-background flex items-center justify-center overflow-hidden tilt-inner">
+              <div className="w-full h-full bg-muted flex items-center justify-center text-9xl relative">
+                <Image src="/myimage.jpg" alt="Rounakk Raaj Sabat" fill className="object-cover rounded-full"
+                  style={{
+                    filter: "contrast(1.1) brightness(1.1)",
+                    boxShadow: "0 0 20px rgba(var(--primary), 0.5)",
+                  }}/>
+              </div>
+            </div>
+
+            <div className="absolute -top-4 -right-4 w-8 h-8 rounded-full bg-primary/30 animate-float-slow"></div>
+            <div className="absolute -bottom-4 -left-4 w-6 h-6 rounded-full bg-blue-500/30 animate-float-medium"></div>
+          </div>
+        </motion.div>
+
+        {/* TEXT CONTENT SECTION - NOW COMES AFTER THE IMAGE ON MOBILE */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -133,12 +164,8 @@ export default function Hero() {
             </motion.p>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 2.1 }}
-            className="flex flex-wrap gap-4"
-          >
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 2.1 }}
+            className="flex flex-wrap gap-4">
             <Button asChild size="lg" className="group relative overflow-hidden">
               <Link href="#contact">
                 <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-blue-500 group-hover:opacity-90 transition-opacity"></span>
@@ -209,53 +236,6 @@ export default function Hero() {
               </Link>
             </Button>
           </motion.div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="hidden md:flex justify-center items-center"
-        >
-          <div className="relative w-80 h-80 tilt perspective-1000">
-            {/* Animated hexagon frame */}
-            <div className="absolute inset-0 animate-rotate-slow">
-              <svg viewBox="0 0 100 100" className="w-full h-full">
-                <polygon
-                  points="50 0, 93.3 25, 93.3 75, 50 100, 6.7 75, 6.7 25"
-                  fill="none"
-                  stroke="hsl(var(--primary))"
-                  strokeWidth="0.5"
-                  className="animate-pulse-slow"
-                />
-              </svg>
-            </div>
-
-            {/* Animated rings */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-blue-500/10 animate-pulse-slow"></div>
-            <div className="absolute inset-3 rounded-full bg-gradient-to-tr from-primary/20 to-blue-500/5 animate-pulse-medium"></div>
-            <div className="absolute inset-6 rounded-full bg-gradient-to-tl from-primary/10 to-blue-500/5 animate-pulse-fast"></div>
-
-            {/* Profile image */}
-            <div className="absolute inset-9 rounded-full bg-background flex items-center justify-center overflow-hidden tilt-inner">
-              <div className="w-full h-full bg-muted flex items-center justify-center text-9xl relative">
-                <Image
-                  src="/myimage.jpg"
-                  alt="Rounakk Raaj Sabat"
-                  fill
-                  className="object-cover rounded-full"
-                  style={{
-                    filter: "contrast(1.1) brightness(1.1)",
-                    boxShadow: "0 0 20px rgba(var(--primary), 0.5)",
-                  }}
-                />
-              </div>
-            </div>
-
-            {/* Decorative elements */}
-            <div className="absolute -top-4 -right-4 w-8 h-8 rounded-full bg-primary/30 animate-float-slow"></div>
-            <div className="absolute -bottom-4 -left-4 w-6 h-6 rounded-full bg-blue-500/30 animate-float-medium"></div>
-          </div>
         </motion.div>
       </motion.div>
 
