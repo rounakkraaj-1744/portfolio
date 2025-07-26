@@ -9,6 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 
 export default function Projects() {
   const [activeTab, setActiveTab] = useState("all")
@@ -45,7 +46,6 @@ export default function Projects() {
       tags: ["Next.js", "OAuth", "Prisma", "Postgres", "TailwindCSS", "ShadCN"],
       category: "web",
       github: "#",
-      // demo: "#",
     },
     {
       id: 2,
@@ -65,7 +65,6 @@ export default function Projects() {
       ],
       category: "web",
       github: "#",
-      // demo: "#",
     },
     {
       id: 3,
@@ -93,6 +92,33 @@ export default function Projects() {
       image: "/weather.png?height=300&width=500",
       tags: ["Next.js", "Express.js", "OpenWeatherMap API"],
       category: "web",
+      github: "#",
+    },
+    {
+      id: 6,
+      title: "Observability Platform",
+      description: "Full Stack Cloud and DevOps Observability Platform",
+      image: "/weather.png?height=300&width=500",
+      tags: ["Next.js", "Express.js", "AWS", "Kubernetes", "Docker", "Helm", "Terraform", "Github Actions", "ArgoCD"],
+      category: "devops",
+      github: "#",
+    },
+    {
+      id: 7,
+      title: "ROSH",
+      description: "High performance Smart Shell powered by Rust",
+      image: "/weather.png?height=300&width=500",
+      tags: ["Rust"],
+      category: "systems",
+      github: "#",
+    },
+    {
+      id: 8,
+      title: "Attendance Tracking App",
+      description: "Attendance Tracking App that will keep a track of your college and office attendance",
+      image: "/weather.png?height=300&width=500",
+      tags: ["React Native", "Nativewind", "TailwindCSS"],
+      category: "mobile",
       github: "#",
     },
   ]
@@ -145,48 +171,63 @@ export default function Projects() {
               variants={containerVariants}
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+              className="w-full"
             >
-              {filteredProjects.map((project) => (
-                <motion.div key={project.id} variants={itemVariants}>
-                  <Card className="overflow-hidden flex flex-col h-full border border-border/50 hover:border-primary/20 transition-all hover:shadow-md group">
-                    <div className="aspect-video w-full overflow-hidden bg-muted relative">
-                      {/* Project image with overlay */}
-                      <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 flex items-center justify-center">
-                        <div className="flex gap-2">
-                          <Button size="sm" variant="secondary" className="rounded-full" asChild>
-                            <Link href={project.github} target="_blank" rel="noopener noreferrer">
-                              <Github className="h-4 w-4 mr-1" />
-                              Code
-                            </Link>
-                          </Button>
-                        </div>
-                      </div>
-
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={project.image || "/placeholder.svg"}
-                        alt={project.title}
-                        className="w-full h-full object-cover transition-transform group-hover:scale-105 duration-300"
-                      />
-                    </div>
-                    <CardHeader>
-                      <CardTitle className="group-hover:text-primary transition-colors">{project.title}</CardTitle>
-                      <div className="flex flex-wrap gap-2 mt-2">
-                        {project.tags.slice(0, 3).map((tag, index) => (
-                          <Badge key={index} variant="secondary">
-                            {tag}
-                          </Badge>
-                        ))}
-                        {project.tags.length > 3 && <Badge variant="outline">+{project.tags.length - 3}</Badge>}
-                      </div>
-                    </CardHeader>
-                    <CardContent className="flex-grow">
-                      <CardDescription className="text-sm">{project.description}</CardDescription>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
+              <Carousel
+                opts={{
+                  align: "start",
+                  loop: true,
+                }}
+                className="w-full"
+              >
+                <CarouselContent className="-ml-2 md:-ml-4">
+                  {filteredProjects.map((project) => (
+                    <CarouselItem key={project.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                      <motion.div variants={itemVariants}>
+                        <Card className="overflow-hidden flex flex-col h-full border border-border/50 hover:border-primary/20 transition-all hover:shadow-md group">
+                          <div className="aspect-video w-full overflow-hidden bg-muted relative">
+                            {/* Project image with overlay */}
+                            <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 flex items-center justify-center">
+                              <div className="flex gap-2">
+                                <Button size="sm" variant="secondary" className="rounded-full" asChild>
+                                  <Link href={project.github} target="_blank" rel="noopener noreferrer">
+                                    <Github className="h-4 w-4 mr-1" />
+                                    Code
+                                  </Link>
+                                </Button>
+                              </div>
+                            </div>
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                              src={project.image || "/placeholder.svg"}
+                              alt={project.title}
+                              className="w-full h-full object-cover transition-transform group-hover:scale-105 duration-300"
+                            />
+                          </div>
+                          <CardHeader>
+                            <CardTitle className="group-hover:text-primary transition-colors">
+                              {project.title}
+                            </CardTitle>
+                            <div className="flex flex-wrap gap-2 mt-2">
+                              {project.tags.slice(0, 3).map((tag, index) => (
+                                <Badge key={index} variant="secondary">
+                                  {tag}
+                                </Badge>
+                              ))}
+                              {project.tags.length > 3 && <Badge variant="outline">+{project.tags.length - 3}</Badge>}
+                            </div>
+                          </CardHeader>
+                          <CardContent className="flex-grow">
+                            <CardDescription className="text-sm">{project.description}</CardDescription>
+                          </CardContent>
+                        </Card>
+                      </motion.div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="hidden md:flex" />
+                <CarouselNext className="hidden md:flex" />
+              </Carousel>
             </motion.div>
           </TabsContent>
         </Tabs>
@@ -197,7 +238,7 @@ export default function Projects() {
           animate={inView ? "visible" : "hidden"}
           className="mt-12 text-center"
         >
-          <Button asChild variant="outline" size="lg" className="rounded-full">
+          <Button asChild variant="outline" size="lg" className="rounded-full bg-transparent">
             <Link href="https://github.com/rounakkraaj-1744" target="_blank" rel="noopener noreferrer">
               <Code className="h-5 w-5 mr-2" />
               View More on GitHub
