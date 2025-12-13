@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, X, Code, Zap } from "lucide-react"
+import { Menu, X, Code } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import { motion, AnimatePresence } 
-from "framer-motion"
+import { motion, AnimatePresence }
+  from "framer-motion"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -53,16 +53,14 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300",
-        scrolled ? "bg-background/80 backdrop-blur-md border-b border-border/50" : "bg-transparent",
+        "fixed top-0 w-full z-50 transition-all duration-300 border-b",
+        scrolled ? "bg-background/80 backdrop-blur-md border-border/50" : "bg-transparent border-transparent",
       )}
     >
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-        <Link href="#home" className="text-xl font-bold tracking-tight hover:opacity-80 transition-opacity group">
-          <span className="flex items-center">
-            <Code className="h-6 w-6 mr-2 text-primary group-hover:rotate-12 transition-transform" />
-            <span className="gradient-text">Rounakk Raaj</span>
-          </span>
+        <Link href="#home" className="text-xl font-bold tracking-tight hover:opacity-80 transition-opacity flex items-center gap-2">
+          <Code className="h-6 w-6 text-primary" />
+          <span>Rounakk Raaj</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-6">
@@ -72,27 +70,17 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 className={cn(
-                  "text-sm font-medium relative group",
-                  activeSection === link.href.substring(1) ? "text-primary" : "text-foreground",
+                  "text-sm font-medium transition-colors hover:text-primary",
+                  activeSection === link.href.substring(1) ? "text-primary" : "text-muted-foreground",
                 )}
               >
                 {link.name}
-                <span
-                  className={cn(
-                    "absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full",
-                    activeSection === link.href.substring(1) ? "w-full" : "w-0",
-                  )}
-                ></span>
               </Link>
             ))}
           </div>
-          <Button asChild size="sm" className="group relative overflow-hidden">
+          <Button asChild size="sm" variant="default" className="rounded-full px-6 hover-lift hover-glow">
             <Link href="#contact">
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-blue-500 group-hover:opacity-90 transition-opacity"></span>
-              <span className="relative flex items-center">
-                <Zap className="mr-2 h-4 w-4 group-hover:animate-pulse" />
-                Get In Touch
-              </span>
+              Get In Touch
             </Link>
           </Button>
         </div>
@@ -125,7 +113,7 @@ export default function Navbar() {
                     href={link.href}
                     className={cn(
                       "text-sm font-medium py-2 block hover:text-primary transition-colors",
-                      activeSection === link.href.substring(1) ? "text-primary" : "text-foreground",
+                      activeSection === link.href.substring(1) ? "text-primary" : "text-muted-foreground",
                     )}
                     onClick={() => setIsOpen(false)}
                   >
@@ -138,13 +126,9 @@ export default function Navbar() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: navLinks.length * 0.1 }}
               >
-                <Button asChild size="sm" className="mt-2 w-full group relative overflow-hidden">
+                <Button asChild size="sm" className="mt-2 w-full rounded-full">
                   <Link href="#contact" onClick={() => setIsOpen(false)}>
-                    <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-purple-500 group-hover:opacity-90 transition-opacity"></span>
-                    <span className="relative flex items-center justify-center">
-                      <Zap className="mr-2 h-4 w-4 group-hover:animate-pulse" />
-                      Get In Touch
-                    </span>
+                    Get In Touch
                   </Link>
                 </Button>
               </motion.div>

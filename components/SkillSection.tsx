@@ -31,59 +31,42 @@ export default function Skills() {
 
   const skillCategories = [
     {
-      title: "Programming Languages",
-      skills: ["Java", "C", "TypeScript", "Rust"],
-      icon: "💻",
+      title: "AI & LLM Systems",
+      skills: ["LangChain", "LangGraph", "Agents", "RAG", "Vector Databases", "Memory Systems"],
+      icon: "🤖",
     },
     {
-      title: "Frontend Development",
-      skills: ["React", "Next.js", "Tailwind CSS", "Zustand"],
-      icon: "🎨",
-    },
-    {
-      title: "Backend Development",
-      skills: ["Node.js", "Express.js", "NestJS"],
+      title: "Backend & Systems",
+      skills: ["NestJS", "Node.js", "Rust", "System Design", "REST APIs", "Async Systems"],
       icon: "⚙️",
     },
     {
-      title: "Mobile Development",
-      skills: ["React Native", "Android (Java)"],
-      icon: "📱",
-    },
-    {
-      title: "DevOps & Tools",
-      skills: ["Git", "Docker", "CI/CD", "AWS", "Linux", "Bash"],
-      icon: "🔧",
-    },
-    {
-      title: "Systems Design",
-      skills: ["Database Design", "System Architecture", "Microservices", "Design Patterns"],
+      title: "Distributed Systems",
+      skills: ["Microservices", "Caching Strategies", "Event-Driven Architecture", "Concurrency", "Message Queues"],
       icon: "🏗️",
+    },
+    {
+      title: "Infrastructure",
+      skills: ["AWS", "Docker", "Kubernetes", "CI/CD", "Terraform", "Linux"],
+      icon: "☁️",
     },
   ]
 
   return (
-    <section id="skills" className="py-20 relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
-      </div>
-
+    <section id="skills" className="py-24 bg-background relative overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="flex flex-col items-center text-center mb-12"
+          className="flex flex-col items-start mb-16"
         >
-          <motion.h2 variants={itemVariants} className="text-3xl font-bold">
-            My Skills
+          <motion.h2 variants={itemVariants} className="text-3xl font-bold tracking-tight">
+            Technical Arsenal
           </motion.h2>
-          <motion.div variants={itemVariants} className="w-20 h-1 bg-primary mt-2 mb-6"></motion.div>
-          <motion.p variants={itemVariants} className="max-w-2xl text-muted-foreground">
-            A comprehensive overview of my technical skills and competencies.
+          <motion.p variants={itemVariants} className="mt-4 text-muted-foreground text-lg max-w-2xl">
+            A comprehensive overview of my technical skills and competencies, focused on high-performance and scalable systems.
           </motion.p>
         </motion.div>
 
@@ -91,23 +74,23 @@ export default function Skills() {
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {skillCategories.map((category, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className="bg-background border border-border/50 p-6 rounded-lg shadow-sm hover:border-primary/20 transition-all hover:shadow-md group"
+              className="bg-card border border-border p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
             >
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-3 mb-6">
                 <span className="text-2xl">{category.icon}</span>
-                <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">{category.title}</h3>
+                <h3 className="text-lg font-semibold">{category.title}</h3>
               </div>
-              <ul className="space-y-2">
+              <ul className="space-y-3">
                 {category.skills.map((skill, skillIndex) => (
                   <li key={skillIndex} className="flex items-center gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-primary" />
-                    <span className="text-muted-foreground group-hover:text-foreground transition-colors">{skill}</span>
+                    <CheckCircle2 className="h-4 w-4 text-primary" />
+                    <span className="text-sm text-muted-foreground">{skill}</span>
                   </li>
                 ))}
               </ul>

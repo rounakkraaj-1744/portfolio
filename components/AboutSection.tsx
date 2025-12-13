@@ -58,30 +58,22 @@ export default function About() {
             variants={containerVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
-            className="space-y-6"
+            className="space-y-6 text-left"
           >
-            <motion.h3 variants={itemVariants} className="text-2xl font-semibold mb-8 neon-text text-center">
-              Aspiring Software Engineer and System Programmer
+            <motion.h3 variants={itemVariants} className="text-2xl font-semibold mb-4 text-foreground">
+              AI Backend & Systems Engineer
             </motion.h3>
-            <motion.p variants={itemVariants} className="text-muted-foreground">
-              I am a passionate Computer Science student with a deep interest in full-stack development, mobile app
-              development, system programming, and DevOps. My journey in tech started with a curiosity about how digital
-              products work, which evolved into hands-on experience building scalable and production-ready applications
-              across multiple domains.
+            <motion.p variants={itemVariants} className="text-muted-foreground leading-relaxed">
+              I design and build high-performance backend systems and scalable AI infrastructure. My expertise lies in architecting distributed systems, optimizing low-latency workflows, and productionizing Large Language Models (LLMs) for real-world applications.
             </motion.p>
-            <motion.p variants={itemVariants} className="text-muted-foreground">
-              I specialize in developing high-performance web and mobile applications using Next.js, React Native,
-              NestJS, Spring Boot, and Rust while leveraging PostgreSQL, MongoDB, and cloud-based databases. My
-              expertise extends to DevOps and cloud infrastructure, where I integrate Docker, Kubernetes, AWS, and CI/CD
-              pipelines to ensure seamless deployment and scalability.
+            <motion.p variants={itemVariants} className="text-muted-foreground leading-relaxed">
+              I specialize in the intersection of Backend Engineering and Generative AI. I have built agentic workflows using LangGraph, scalable microservices with NestJS and Rust, and retrieval systems using vector databases. My focus is on reliability, concurrency, and system design patterns that stand up to production traffic.
             </motion.p>
-            <motion.p variants={itemVariants} className="text-muted-foreground">
-              Beyond full-stack development, I am exploring Generative AI (GenAI) for application development,
-              incorporating LangChain and AI-driven automation into my projects. I also have a strong foundation in
-              system programming, building optimized software that blends efficiency with modern technology.
+            <motion.p variants={itemVariants} className="text-muted-foreground leading-relaxed">
+              Currently, I am deepening my work in multi-agent systems and event-driven architectures. I am actively building tools that bridge the gap between experimental AI scripts and robust, enterprise-grade platforms.
             </motion.p>
-            <motion.p variants={itemVariants} className="text-muted-foreground">
-              Let&apos;s connect and build something impactful together!
+            <motion.p variants={itemVariants} className="text-muted-foreground leading-relaxed">
+              I am open to roles in AI Infrastructure, Backend Engineering, and Distributed Systems, where I can solve complex architectural challenges.
             </motion.p>
           </motion.div>
 
