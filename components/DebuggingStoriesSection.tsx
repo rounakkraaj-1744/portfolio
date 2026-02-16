@@ -1,6 +1,5 @@
 "use client"
 
-import Link from "next/link"
 import { useInView } from "react-intersection-observer"
 
 export default function DebuggingStories() {

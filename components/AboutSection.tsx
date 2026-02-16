@@ -26,7 +26,7 @@ export default function About() {
           {/* Education */}
           <div>
             <h3 className="text-xs font-mono font-semibold text-primary uppercase tracking-widest mb-4">
-              // Education
+              {"// Education"}
             </h3>
             <div className="case-study-card">
               <p className="text-sm font-semibold text-foreground font-mono">NIST University</p>
@@ -50,7 +50,7 @@ export default function About() {
           {/* Achievements */}
           <div>
             <h3 className="text-xs font-mono font-semibold text-primary uppercase tracking-widest mb-4">
-              // Achievements
+              {"// Achievements"}
             </h3>
             <div className="case-study-card space-y-4">
               <div>

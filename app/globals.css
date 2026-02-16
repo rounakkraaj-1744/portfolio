@@ -365,3 +365,125 @@
     padding-bottom: var(--space-xl);
   }
 }
+
+/* ── Article Cards ── */
+@layer components {
+  .article-list {
+    @apply space-y-0;
+  }
+
+  .article-card {
+    @apply flex gap-5 py-7;
+    border-bottom: 1px solid hsl(var(--border));
+  }
+
+  .article-list > :first-child .article-card {
+    padding-top: 0;
+  }
+
+  .article-card-content {
+    @apply flex-1 min-w-0;
+  }
+
+  /* Author / meta line */
+  .article-meta-line {
+    @apply flex items-center gap-1.5 mb-3 flex-wrap;
+  }
+
+  .article-avatar {
+    @apply relative w-6 h-6 rounded-full overflow-hidden flex-shrink-0 border;
+    border-color: hsl(var(--border));
+  }
+
+  .article-author {
+    @apply text-sm text-foreground font-medium;
+    font-family: 'Georgia', 'Times New Roman', serif;
+  }
+
+  .article-meta-sep {
+    @apply text-xs text-muted-foreground;
+  }
+
+  .article-meta-label {
+    @apply text-sm text-muted-foreground;
+    font-family: 'Georgia', 'Times New Roman', serif;
+  }
+
+  .article-publication {
+    @apply text-sm font-medium;
+    color: hsl(var(--primary));
+    font-family: 'Georgia', 'Times New Roman', serif;
+  }
+
+  .article-date {
+    @apply text-sm text-muted-foreground;
+    font-family: 'Georgia', 'Times New Roman', serif;
+  }
+
+  /* Title */
+  .article-title {
+    @apply text-xl font-extrabold leading-snug mb-2 transition-colors duration-200;
+    color: hsl(var(--foreground));
+    font-family: 'Georgia', 'Times New Roman', serif;
+    letter-spacing: -0.01em;
+  }
+
+  .group:hover .article-title {
+    color: hsl(var(--primary));
+  }
+
+  /* Description */
+  .article-description {
+    @apply text-sm leading-relaxed mb-4 line-clamp-2;
+    color: hsl(var(--muted-foreground));
+    font-family: 'Georgia', 'Times New Roman', serif;
+  }
+
+  /* Bottom meta row */
+  .article-bottom-meta {
+    @apply flex items-center gap-2;
+  }
+
+  .article-read-time {
+    @apply text-xs text-muted-foreground;
+    font-family: 'Georgia', 'Times New Roman', serif;
+  }
+
+  .article-tag {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs border;
+    border-color: hsl(var(--border));
+    color: hsl(var(--foreground));
+    font-family: 'Georgia', 'Times New Roman', serif;
+  }
+
+  .article-bookmark {
+    @apply h-4 w-4 text-muted-foreground ml-auto opacity-40;
+    transition: opacity 0.2s ease;
+  }
+
+  .group:hover .article-bookmark {
+    @apply opacity-100;
+  }
+
+  /* Thumbnail */
+  .article-thumbnail {
+    @apply relative flex-shrink-0 rounded-sm overflow-hidden;
+    width: 180px;
+    height: 120px;
+  }
+
+  @media (max-width: 640px) {
+    .article-thumbnail {
+      width: 100px;
+      height: 80px;
+    }
+
+    .article-title {
+      @apply text-base;
+    }
+
+    .article-description {
+      @apply text-xs;
+    }
+  }
+}
