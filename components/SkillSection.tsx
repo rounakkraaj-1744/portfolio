@@ -1,102 +1,106 @@
 "use client"
 
-import { CheckCircle2 } from "lucide-react"
-import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 
 export default function Skills() {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0.05,
   })
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  }
-
-  const skillCategories = [
+  const columns = [
     {
-      title: "AI & LLM Systems",
-      skills: ["LangChain", "LangGraph", "Agents", "RAG", "Vector Databases", "Memory Systems"],
-      icon: "🤖",
+      header: "FOUNDATIONS",
+      items: [
+        { name: "Node.js", sub: "Express + Fastify" },
+        { name: "PostgreSQL", sub: "Primary database" },
+        { name: "MongoDB", sub: "Document store" },
+      ],
     },
     {
-      title: "Backend & Systems",
-      skills: ["NestJS", "Node.js", "Rust", "System Design", "REST APIs", "Async Systems"],
-      icon: "⚙️",
+      header: "MESSAGING / CACHE",
+      items: [
+        { name: "Redis", sub: "Caching + Pub/Sub" },
+        { name: "Kafka", sub: "Event streaming" },
+        { name: "RabbitMQ", sub: "Task queues" },
+      ],
     },
     {
-      title: "Distributed Systems",
-      skills: ["Microservices", "Caching Strategies", "Event-Driven Architecture", "Concurrency", "Message Queues"],
-      icon: "🏗️",
+      header: "COMPUTE / RUNTIME",
+      items: [
+        { name: "AWS Lambda", sub: "Serverless" },
+        { name: "Docker", sub: "Containers" },
+        { name: "Kubernetes", sub: "Orchestration" },
+      ],
     },
     {
-      title: "Infrastructure",
-      skills: ["AWS", "Docker", "Kubernetes", "CI/CD", "Terraform", "Linux"],
-      icon: "☁️",
+      header: "API / INFRA",
+      items: [
+        { name: "REST/GraphQL", sub: "API design" },
+        { name: "gRPC", sub: "Service mesh" },
+        { name: "Terraform", sub: "IaC" },
+      ],
+    },
+    {
+      header: "DEVTOOLS/INFRA",
+      items: [
+        { name: "GitHub Actions", sub: "CI/CD" },
+        { name: "Prometheus", sub: "Monitoring" },
+        { name: "Grafana", sub: "Dashboards" },
+      ],
     },
   ]
 
   return (
-    <section id="skills" className="py-24 bg-background relative overflow-hidden">
-      <div className="container mx-auto px-4">
-        <motion.div
-          ref={ref}
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="flex flex-col items-start mb-16"
-        >
-          <motion.h2 variants={itemVariants} className="text-3xl font-bold tracking-tight">
-            Technical Arsenal
-          </motion.h2>
-          <motion.p variants={itemVariants} className="mt-4 text-muted-foreground text-lg max-w-2xl">
-            A comprehensive overview of my technical skills and competencies, focused on high-performance and scalable systems.
-          </motion.p>
-        </motion.div>
+    <section id="skills" className="section-padding">
+      <div
+        ref={ref}
+        className={`container mx-auto px-4 md:px-6 lg:px-8 transition-all duration-700 ease-out ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          }`}
+        style={{ maxWidth: "var(--max-container)" }}
+      >
+        {/* Section Header */}
+        <div className="flex items-center justify-between mb-10">
+          <h2 className="text-section flex items-center gap-3">
+            <span className="section-number">03.</span>
+            Tech Stack Decisions
+          </h2>
+          <span className="hidden sm:inline-block text-[10px] font-mono text-muted-foreground">
+            cat ./.env/stack/tech/tooling_base
+          </span>
+        </div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          {skillCategories.map((category, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              className="bg-card border border-border p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <span className="text-2xl">{category.icon}</span>
-                <h3 className="text-lg font-semibold">{category.title}</h3>
-              </div>
-              <ul className="space-y-3">
-                {category.skills.map((skill, skillIndex) => (
-                  <li key={skillIndex} className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span className="text-sm text-muted-foreground">{skill}</span>
-                  </li>
+        {/* Tech Table */}
+        <div className="overflow-x-auto border border-border rounded-md">
+          <table className="tech-table">
+            <thead>
+              <tr>
+                {columns.map((col, i) => (
+                  <th key={i}>{col.header}</th>
                 ))}
-              </ul>
-            </motion.div>
-          ))}
-        </motion.div>
+              </tr>
+            </thead>
+            <tbody>
+              {[0, 1, 2].map((rowIndex) => (
+                <tr key={rowIndex}>
+                  {columns.map((col, colIndex) => {
+                    const item = col.items[rowIndex]
+                    return (
+                      <td key={colIndex}>
+                        {item ? (
+                          <>
+                            <span className="text-foreground">{item.name}</span>
+                            <span className="tech-sub">{item.sub}</span>
+                          </>
+                        ) : null}
+                      </td>
+                    )
+                  })}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
   )

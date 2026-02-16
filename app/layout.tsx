@@ -11,33 +11,33 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Rounakk Raaj Sabat | AI Backend & Systems Engineer",
-  description: "Senior AI Backend & Systems Engineer specializing in scalable GenAI infrastructure, distributed systems, and agentic workflows.",
-  keywords: ["AI Engineer", "Backend Engineer", "Systems Engineer", "Rust", "NestJS", "LangChain", "GenAI", "Distributed Systems"],
+  title: "Rounakk Raaj | Platform Engineer — Distributed Systems & Reliability",
+  description: "Platform engineer scaling 100k+ RPS. Focused on concurrency, idempotency, and high-availability failure recovery.",
+  keywords: ["Platform Engineer", "Distributed Systems", "System Design", "Kubernetes", "Rust", "Node.js", "Infrastructure", "Reliability"],
   authors: [{ name: "Rounakk Raaj Sabat" }],
   creator: "Rounakk Raaj Sabat",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://rounakk.dev",
-    title: "Rounakk Raaj Sabat | AI Backend & Systems Engineer",
-    description: "Building scalable GenAI infrastructure, LLM workflows, and distributed backend systems.",
-    siteName: "Rounakk Raaj Sabat Portfolio",
+    title: "Rounakk Raaj | Platform Engineer — Distributed Systems & Reliability",
+    description: "Platform engineer scaling 100k+ RPS. Focused on concurrency, idempotency, and high-availability failure recovery.",
+    siteName: "Rounakk Raaj Sabat",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Rounakk Raaj Sabat - AI Backend & Systems Engineer",
+        alt: "Rounakk Raaj — Platform Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rounakk Raaj Sabat | AI Backend & Systems Engineer",
-    description: "Building scalable GenAI infrastructure, LLM workflows, and distributed backend systems.",
+    title: "Rounakk Raaj | Platform Engineer — Distributed Systems",
+    description: "Platform engineer scaling 100k+ RPS. Focused on concurrency, idempotency, and high-availability failure recovery.",
     images: ["/og-image.png"],
-    creator: "@rounakkraaj", // assuming this handle, or user can update
+    creator: "@rounakkraaj",
   },
   robots: {
     index: true,

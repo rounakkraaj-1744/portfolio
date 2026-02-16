@@ -1,183 +1,117 @@
 "use client"
 
-import { useRef, useState } from "react"
 import Link from "next/link"
-import { ArrowDown, Github, Linkedin, Mail, Code } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { motion, useScroll, useTransform } from "framer-motion"
-
-function InteractivePhoto() {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
-  const [isHovered, setIsHovered] = useState(false)
-
-  const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect()
-    // Capture position relative to the container
-    setMousePos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top
-    })
-    setIsHovered(true)
-  }
-
-  return (
-    <div
-      className="relative group w-full max-w-md cursor-crosshair"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {/* Background Glow */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-[2rem] blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500" />
-
-      <div className="relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-background">
-        {/* Color Image (Base - Always there) */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/myimage.jpg"
-          alt="Rounakk Raaj"
-          className="w-full h-auto object-cover relative z-0"
-        />
-
-        {/* Grayscale Overlay (Top - Wipes away) */}
-        <motion.div
-          className="absolute inset-0 z-10 pointer-events-none"
-          animate={{
-            clipPath: isHovered
-              ? `circle(0% at ${mousePos.x}px ${mousePos.y}px)`
-              : `circle(150% at ${mousePos.x}px ${mousePos.y}px)`
-          }}
-          transition={{
-            duration: 0.7,
-            ease: "circOut"
-          }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/myimage.jpg"
-            alt="Rounakk Raaj Grayscale"
-            className="w-full h-full object-cover grayscale"
-          />
-        </motion.div>
-      </div>
-    </div>
-  )
-}
+import { Github, Linkedin, Mail } from "lucide-react"
+import { useInView } from "react-intersection-observer"
 
 export default function Hero() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"],
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
   })
-
-  // Subtle parallax for text
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"])
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
 
   return (
     <section
-      ref={containerRef}
       id="home"
-      className="relative min-h-screen flex items-center pt-20 bg-background"
+      className="min-h-screen flex items-center section-padding"
+      style={{ paddingTop: "var(--space-2xl)" }}
     >
-      <motion.div
-        style={{ y, opacity }}
-        className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center"
+      <div
+        ref={ref}
+        className={`container mx-auto px-4 md:px-6 lg:px-8 transition-all duration-700 ease-out ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          }`}
+        style={{ maxWidth: "var(--max-container)" }}
       >
-        <div className="flex flex-col gap-8">
-          <div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary/10 text-primary mb-4">
-                Available for new opportunities
-              </div>
-              <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground mb-6">
-                AI Backend & <br />
-                <span className="text-muted-foreground">Systems Engineer</span>
-              </h1>
-            </motion.div>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-lg"
-            >
-              Building scalable GenAI infrastructure, LLM workflows, agents, and distributed backend systems using NestJS, LangGraph, Rust, and vector search.
-            </motion.p>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-wrap gap-4"
-          >
-            <Button asChild size="lg" className="rounded-full px-8 hover-lift hover-glow">
-              <Link href="#projects">
-                <Code className="mr-2 h-4 w-4" />
-                View AI Projects
-              </Link>
-            </Button>
-
-            <Button asChild variant="outline" size="lg" className="rounded-full px-8 hover-lift">
-              <Link href="#contact">
-                Contact Me
-              </Link>
-            </Button>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex gap-6 mt-2 items-center"
-          >
-            {/* Social Links with standard minimal icons */}
-            <Link href="https://github.com/rounakkraaj-1744" target="_blank" className="text-muted-foreground hover:text-foreground transition-colors">
-              <Github className="h-6 w-6" />
-              <span className="sr-only">GitHub</span>
-            </Link>
-            <Link href="https://www.linkedin.com/in/rounakk-raaj-745rrs/" target="_blank" className="text-muted-foreground hover:text-foreground transition-colors">
-              <Linkedin className="h-6 w-6" />
-              <span className="sr-only">LinkedIn</span>
-            </Link>
-            <Link href="mailto:rounakkraaj707@gmail.com" className="text-muted-foreground hover:text-foreground transition-colors">
-              <Mail className="h-6 w-6" />
-              <span className="sr-only">Email</span>
-            </Link>
-          </motion.div>
+        {/* System status badge */}
+        <div className="mb-6">
+          <span className="tag-status font-mono text-[10px]">
+            SYSTEM_STATUS: STABLE
+          </span>
         </div>
 
-        {/* Right side - Abstract architectural visualization or code snippet instead of image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          className="hidden md:flex justify-center items-center relative"
-        >
-          {/* Subtle glow behind the image */}
-          <div className="absolute w-[400px] h-[400px] bg-primary/10 rounded-full blur-[80px] -z-10" />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+          {/* Left Column — Headline */}
+          <div>
+            <h1 className="text-hero text-foreground mb-6">
+              Platform Engineer{" "}
+              <span className="text-muted-foreground">|</span> Scaling{" "}
+              <span className="text-primary">100k+ RPS</span>{" "}
+              <span className="text-muted-foreground">|</span> Distributed Systems Reliability
+            </h1>
 
-          {/* User Photo with Interactive Reveal */}
-          <InteractivePhoto />
-        </motion.div>
-      </motion.div>
+            <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-8 font-mono" style={{ maxWidth: "480px" }}>
+              Focusing on concurrency, idempotency, and high-availability failure recovery.
+            </p>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <Link href="#about" className="flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group">
-          <span className="text-xs tracking-widest uppercase">Explore</span>
-          <ArrowDown className="h-4 w-4 animate-bounce" />
-        </Link>
-      </motion.div>
+            {/* Stat badges */}
+            <div className="flex flex-wrap gap-3 mb-8">
+              <div className="stat-badge">
+                <span className="stat-label">req_count</span>
+                <span className="stat-value">1.2M+</span>
+              </div>
+              <div className="stat-badge">
+                <span className="stat-label">dataset_size</span>
+                <span className="stat-value">500K+ Rows</span>
+              </div>
+              <div className="stat-badge">
+                <span className="stat-label">p99_latency</span>
+                <span className="stat-value">~60ms</span>
+              </div>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex items-center gap-4 font-mono text-xs">
+              <Link
+                href="https://github.com/rounakkraaj-1744"
+                target="_blank"
+                className="flex items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors duration-200"
+              >
+                <Github className="h-3.5 w-3.5" />
+                <span>GitHub</span>
+              </Link>
+              <Link
+                href="https://www.linkedin.com/in/rounakk-raaj-745rrs/"
+                target="_blank"
+                className="flex items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors duration-200"
+              >
+                <Linkedin className="h-3.5 w-3.5" />
+                <span>LinkedIn</span>
+              </Link>
+              <Link
+                href="mailto:rounakkraaj707@gmail.com"
+                className="flex items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors duration-200"
+              >
+                <Mail className="h-3.5 w-3.5" />
+                <span>Email</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Column — Terminal Block */}
+          <div className="terminal-block">
+            <div className="terminal-header">
+              <div className="terminal-dot bg-red-500" />
+              <div className="terminal-dot bg-yellow-500" />
+              <div className="terminal-dot bg-green-500" />
+              <span className="text-[10px] text-muted-foreground ml-2 font-mono">~/system_stats</span>
+            </div>
+            <div className="terminal-body">
+              <p><span className="comment"># distributed_stats</span></p>
+              <p>&nbsp;</p>
+              <p>→ OS: <span className="string">Linux 6.1.0-generic</span></p>
+              <p>→ Kernel: <span className="string">LTS-5-generic</span></p>
+              <p>→ Uptime: <span className="string">1 day, 5 months</span></p>
+              <p>→ Shell: <span className="string">zsh 5.9</span></p>
+              <p>→ Terminal: <span className="string">Alacritty, vs_host</span></p>
+              <p>&nbsp;</p>
+              <p>→ upstreams: <span className="string">NodeJS, Go, Rust</span></p>
+              <p>→ infra: <span className="string">k8s, Terraform, AWS</span></p>
+              <p>&nbsp;</p>
+              <p><span className="prompt">$</span> <span className="keyword">tail</span> -f /var/log/production.log</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   )
 }
