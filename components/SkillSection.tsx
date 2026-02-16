@@ -10,43 +10,48 @@ export default function Skills() {
 
   const columns = [
     {
-      header: "FOUNDATIONS",
+      header: "LANGUAGES",
       items: [
-        { name: "Node.js", sub: "Express + Fastify" },
-        { name: "PostgreSQL", sub: "Primary database" },
+        { name: "TypeScript", sub: "Primary" },
+        { name: "JavaScript", sub: "Core" },
+        { name: "Java", sub: "Backend" },
+        { name: "C", sub: "Systems" },
+      ],
+    },
+    {
+      header: "FRAMEWORKS",
+      items: [
+        { name: "Node.js", sub: "Runtime" },
+        { name: "Express.js", sub: "REST APIs" },
+        { name: "NestJS", sub: "Enterprise" },
+        { name: "Next.js / React", sub: "Frontend" },
+      ],
+    },
+    {
+      header: "DATABASES",
+      items: [
+        { name: "PostgreSQL", sub: "Primary RDBMS" },
         { name: "MongoDB", sub: "Document store" },
+        { name: "Pinecone", sub: "Vector DB" },
+        { name: "Redis", sub: "Cache + Pub/Sub" },
       ],
     },
     {
-      header: "MESSAGING / CACHE",
+      header: "CLOUD & DEVOPS",
       items: [
-        { name: "Redis", sub: "Caching + Pub/Sub" },
-        { name: "Kafka", sub: "Event streaming" },
-        { name: "RabbitMQ", sub: "Task queues" },
-      ],
-    },
-    {
-      header: "COMPUTE / RUNTIME",
-      items: [
-        { name: "AWS Lambda", sub: "Serverless" },
-        { name: "Docker", sub: "Containers" },
-        { name: "Kubernetes", sub: "Orchestration" },
-      ],
-    },
-    {
-      header: "API / INFRA",
-      items: [
-        { name: "REST/GraphQL", sub: "API design" },
-        { name: "gRPC", sub: "Service mesh" },
-        { name: "Terraform", sub: "IaC" },
-      ],
-    },
-    {
-      header: "DEVTOOLS/INFRA",
-      items: [
+        { name: "AWS", sub: "EC2, S3, Lambda, EKS" },
+        { name: "Docker / K8s", sub: "Containers" },
+        { name: "Terraform / SAM", sub: "IaC" },
         { name: "GitHub Actions", sub: "CI/CD" },
-        { name: "Prometheus", sub: "Monitoring" },
-        { name: "Grafana", sub: "Dashboards" },
+      ],
+    },
+    {
+      header: "AI & SYSTEMS",
+      items: [
+        { name: "LangChain", sub: "RAG pipelines" },
+        { name: "LangGraph", sub: "Multi-agent" },
+        { name: "Groq / Gemini", sub: "LLM APIs" },
+        { name: "gRPC / tRPC", sub: "RPC protocols" },
       ],
     },
   ]
@@ -81,7 +86,7 @@ export default function Skills() {
               </tr>
             </thead>
             <tbody>
-              {[0, 1, 2].map((rowIndex) => (
+              {[0, 1, 2, 3].map((rowIndex) => (
                 <tr key={rowIndex}>
                   {columns.map((col, colIndex) => {
                     const item = col.items[rowIndex]
