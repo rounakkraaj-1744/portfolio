@@ -45,6 +45,7 @@ export default function Navbar() {
     { name: "./tech_studies", href: "#projects" },
     { name: "./stack_decisions", href: "#skills" },
     { name: "./debug_stories", href: "#debugging" },
+    { name: "./articles", href: "#articles" },
     { name: "./edu_achv", href: "#education" },
   ]
 
