@@ -14,7 +14,7 @@ export default function Experience() {
       role: "Backend & Cloud Engineer Intern",
       period: "Sep 2025 — Jan 2026",
       location: "Delhi (Remote)",
-      status: "WORKING",
+      status: "RESOLVED",
       items: [
         { tag: "PROBLEM", type: "problem", text: "Engineered and scaled serverless e-commerce backend using Node.js + AWS Lambda, handling order, payment, and user flows with idempotent APIs and failure recovery." },
         { tag: "SOLUTION", type: "solution", text: "Integrated PhonePe payment gateway with secure webhooks, idempotency handling and webhook reliability." },
