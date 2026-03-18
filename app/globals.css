@@ -83,8 +83,11 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    @apply bg-background text-foreground antialiased font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6, .display-heading {
+    @apply font-serif;
   }
 }
 
@@ -104,7 +107,7 @@
 
 /* Base custom styles */
 .section-title {
-  @apply text-xl font-bold tracking-tight inline-block relative mb-8;
+  @apply text-xl font-bold tracking-tight inline-block relative mb-8 font-serif;
 }
 .section-title::after {
   content: '';
@@ -116,5 +119,5 @@
 }
 
 .pill-badge {
-  @apply inline-flex items-center justify-center rounded-full text-xs font-medium px-2.5 py-0.5 whitespace-nowrap;
+  @apply inline-flex items-center justify-center rounded-full text-xs font-medium px-2.5 py-0.5 whitespace-nowrap font-mono;
 }

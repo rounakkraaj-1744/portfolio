@@ -10,7 +10,9 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				mono: ['JetBrains Mono', 'Fira Code', 'SF Mono', 'monospace'],
+				sans: ['var(--font-dm-sans)', 'system-ui', 'sans-serif'],
+				serif: ['var(--font-fraunces)', 'Georgia', 'serif'],
+				mono: ['var(--font-jetbrains-mono)', 'monospace'],
 			},
 			colors: {
 				background: 'hsl(var(--background))',

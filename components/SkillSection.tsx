@@ -14,7 +14,7 @@ export default function Skills() {
             </h3>
             <div className="flex flex-wrap gap-2">
               {col.items.map((item, j) => (
-                <span key={j} className="inline-flex items-center justify-center rounded-md bg-gray-100/80 text-gray-700 text-xs font-semibold px-2.5 py-1.5">
+                <span key={j} className="inline-flex items-center justify-center rounded-md bg-gray-100/80 text-gray-700 text-xs font-semibold px-2.5 py-1.5 font-mono">
                   {item.name}
                 </span>
               ))}

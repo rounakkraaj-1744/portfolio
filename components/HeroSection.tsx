@@ -96,7 +96,7 @@ export default function Hero() {
             <div key={i} className="flex items-center shrink-0">
               {techMarquee.map((tech, j) => (
                 <div key={`${i}-${j}`} className="flex items-center">
-                  <span className="text-white text-sm font-bold tracking-widest px-8">
+                  <span className="text-white text-sm font-bold tracking-widest px-8 font-mono">
                     {tech}
                   </span>
                   <span className="text-gray-500 text-[10px]">►</span>

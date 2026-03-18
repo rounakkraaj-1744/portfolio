@@ -1,12 +1,22 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { DM_Sans, Fraunces, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/Navbar"
 
-const inter = Inter({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-dm-sans",
+})
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
 })
 
 export const metadata: Metadata = {
@@ -21,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans antialiased bg-[#F4F3EF] text-[#111111]`}>
+      <body className={`${dmSans.variable} ${fraunces.variable} ${jetbrainsMono.variable} font-sans antialiased bg-[#F4F3EF] text-[#111111]`}>
         <Navbar />
         {children}
       </body>

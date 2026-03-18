@@ -126,7 +126,7 @@ export const AnimatedCarousel = ({ carousels, autoplay = false }:Props) => {
             
             <div className="flex flex-wrap gap-2 mb-6">
                {carousels[active].tags.map((tag, i) => (
-                  <span key={i} className="px-2.5 py-1 rounded bg-[#111] text-white text-[10px] uppercase font-bold tracking-wider">
+                  <span key={i} className="px-2.5 py-1 rounded bg-[#111] text-white text-[10px] uppercase font-bold tracking-wider font-mono">
                      {tag}
                   </span>
                ))}
