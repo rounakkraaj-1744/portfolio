@@ -9,7 +9,7 @@ export default function Footer() {
         {/* Big CTA */}
         <div className="text-center mb-24">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-8">
-            Let's build something<br />that scales.
+            Let&apos;s build something<br />that scales.
           </h2>
 
           <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 text-sm font-medium text-gray-400">
@@ -22,13 +22,12 @@ export default function Footer() {
             <Link href={`mailto:${personalInfo.email}`} className="hover:text-white transition-colors">
               Email
             </Link>
-            <Link href="https://medium.com" target="_blank" className="hover:text-white transition-colors">
+            <Link href="https://rounakkraajsabat.medium.com" target="_blank" className="hover:text-white transition-colors">
               Medium
             </Link>
           </div>
         </div>
 
-        {/* Bottom Credits */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-white/10 text-xs text-gray-500 font-medium">
           <p className="text-lg font-bold text-white tracking-tight">Rounakk</p>
           <p>

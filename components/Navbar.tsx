@@ -25,12 +25,10 @@ export default function Navbar() {
     )}>
       <div className="mx-auto px-4 md:px-6 lg:px-8 flex justify-between items-center h-20" style={{ maxWidth: "var(--max-container)" }}>
 
-        {/* Logo */}
         <Link href="#home" className="text-xl font-bold tracking-tight text-[#111]">
           Rounakk
         </Link>
 
-        {/* Center Links */}
         <div className="hidden lg:flex items-center gap-8">
           <Link href="#projects" className="text-sm font-medium text-gray-600 hover:text-black transition-colors duration-200">
             Work
@@ -46,14 +44,12 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Right CTA */}
         <div className="hidden lg:flex items-center">
           <Link href="mailto:rounakkraaj707@gmail.com" className="flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-[#111] text-white text-sm font-medium hover:bg-black transition-all hover-lift">
-            Let's talk <ArrowUpRight className="h-4 w-4" />
+            Let&apos;s talk <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
 
-        {/* Mobile Menu Toggle */}
         <div className="flex items-center lg:hidden">
           <button onClick={() => setIsOpen(!isOpen)} className="p-2 text-gray-600" aria-label="Toggle Menu">
             {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -61,7 +57,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
         <div className="lg:hidden bg-[#F4F3EF] border-b border-gray-200 absolute w-full left-0 top-full">
           <div className="px-4 py-4 flex flex-col gap-4">
@@ -70,7 +65,7 @@ export default function Navbar() {
             <Link href="#experience" className="text-base font-medium text-gray-800" onClick={() => setIsOpen(false)}>Chats</Link>
             <Link href="#articles" className="text-base font-medium text-gray-800" onClick={() => setIsOpen(false)}>Writing</Link>
             <Link href="mailto:rounakkraaj707@gmail.com" className="flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-[#111] text-white text-sm font-medium w-max" onClick={() => setIsOpen(false)}>
-              Let's talk <ArrowUpRight className="h-4 w-4" />
+              Let&apos;s talk <ArrowUpRight className="h-4 w-4" />
             </Link>
           </div>
         </div>

@@ -11,12 +11,7 @@ interface SectionProps {
     className?: string
 }
 
-export default function Section({
-    id,
-    title,
-    children,
-    className,
-}: SectionProps) {
+export default function Section({ id, title, children, className }: SectionProps) {
     const [ref, inView] = useInView({
         triggerOnce: true,
         threshold: 0.1,

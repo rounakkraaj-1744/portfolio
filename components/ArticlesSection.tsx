@@ -8,7 +8,7 @@ import Section from "./Section"
 import { articles, personalInfo } from "@/lib/constants"
 
 export default function Articles() {
-    const [showAll, setShowAll] = useState(false)
+    const [showAll] = useState(false)
     const displayedArticles = showAll ? articles : articles.slice(0, 3)
 
     return (
@@ -18,7 +18,6 @@ export default function Articles() {
                     <Link key={index} href={article.url} target="_blank" className="group flex flex-col sm:flex-row gap-6 sm:gap-10 pb-8 border-b border-gray-200 last:border-0 hover-lift">
                         
                         <div className="flex-1 order-2 sm:order-1">
-                            {/* Meta Info */}
                             <div className="flex items-center gap-2 mb-3">
                                 <div className="relative w-6 h-6 rounded-full overflow-hidden shrink-0">
                                     <Image src="/myimage.jpg" alt={personalInfo.name} fill className="object-cover" />
@@ -28,7 +27,6 @@ export default function Articles() {
                                 <span className="text-sm text-gray-500">{article.date}</span>
                             </div>
 
-                            {/* Title & Description */}
                             <h3 className="text-xl sm:text-2xl font-bold text-[#111] leading-tight mb-3 group-hover:text-blue-600 transition-colors">
                                 {article.title}
                             </h3>
@@ -36,13 +34,11 @@ export default function Articles() {
                                 {article.description}
                             </p>
 
-                            {/* Footer tags */}
                             <div className="flex items-center gap-3 mt-4">
                                 <span className="text-xs text-gray-400">{article.readTime}</span>
                             </div>
                         </div>
 
-                        {/* Thumbnail */}
                         <div className="order-1 sm:order-2 shrink-0">
                             <div className="relative w-full h-48 sm:w-56 sm:h-36 rounded-xl overflow-hidden shadow-sm border border-gray-100 bg-gray-50">
                                 <Image src={article.thumbnail} alt={article.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />

@@ -2,7 +2,6 @@ import {
     Article,
     DebuggingStory,
     Experience,
-    NavLink,
     PersonalInfo,
     Project,
     SkillColumn,
@@ -10,27 +9,12 @@ import {
 
 export const personalInfo: PersonalInfo = {
     name: "Rounakk Raaj Sabat",
-    role: "Platform Engineer",
+    role: "Backend Engineer",
     email: "rounakkraaj707@gmail.com",
     github: "https://github.com/rounakkraaj-1744",
-    linkedin: "https://www.linkedin.com/in/rounakk-raaj-745rrs/",
+    linkedin: "https://www.linkedin.com/in/rounakkraajsabat/",
     baseUrl: "https://rounakk.in",
-    stats: [
-        { label: "REQ_COUNT", value: "1.2M+" },
-        { label: "DATASET_SIZE", value: "500K+ Rows" },
-        { label: "P99_LATENCY", value: "~60ms" },
-    ],
 }
-
-export const navLinks: NavLink[] = [
-    { name: "./sys", href: "#home" },
-    { name: "./exp_incidents", href: "#experience" },
-    { name: "./tech_studies", href: "#projects" },
-    { name: "./stack_decisions", href: "#skills" },
-    { name: "./debug_stories", href: "#debugging" },
-    { name: "./articles", href: "#articles" },
-    { name: "./edu_achv", href: "#education" },
-]
 
 export const experiences: Experience[] = [
     {

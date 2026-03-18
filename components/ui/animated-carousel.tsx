@@ -43,10 +43,13 @@ export const AnimatedCarousel = ({ carousels, autoplay = false }:Props) => {
       const interval = setInterval(handleNext, 5000);
       return () => clearInterval(interval);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [autoplay, carousels.length]);
 
-  const randomRotateY = () => {
-    return Math.floor(Math.random() * 21) - 10;
+  // Deterministic rotations to prevent SSR hydration errors
+  const getRotateY = (index: number) => {
+    const rotations = [-6, 7, -4, 8, -3, 6, -7, 5];
+    return rotations[index % rotations.length];
   };
 
   if(!carousels || carousels.length === 0) return null;
@@ -64,13 +67,13 @@ export const AnimatedCarousel = ({ carousels, autoplay = false }:Props) => {
                     opacity: 0,
                     scale: 0.9,
                     z: -100,
-                    rotate: randomRotateY(),
+                    rotate: getRotateY(index),
                   }}
                   animate={{
                     opacity: isActive(index) ? 1 : 0.6,
                     scale: isActive(index) ? 1 : 0.95,
                     z: isActive(index) ? 0 : -100,
-                    rotate: isActive(index) ? 0 : randomRotateY(),
+                    rotate: isActive(index) ? 0 : getRotateY(index),
                     zIndex: isActive(index)
                       ? 40
                       : carousels.length + 2 - index,
@@ -80,7 +83,7 @@ export const AnimatedCarousel = ({ carousels, autoplay = false }:Props) => {
                     opacity: 0,
                     scale: 0.9,
                     z: 100,
-                    rotate: randomRotateY(),
+                    rotate: getRotateY(index),
                   }}
                   transition={{
                     duration: 0.4,

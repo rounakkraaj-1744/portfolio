@@ -68,8 +68,4 @@ export interface PersonalInfo {
     github: string
     linkedin: string
     baseUrl: string
-    stats: {
-        label: string
-        value: string
-    }[]
 }
