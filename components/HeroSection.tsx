@@ -39,10 +39,10 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
-              <Link href="#projects" className="px-6 py-3 bg-[#111] text-white text-sm font-medium rounded hover:bg-black transition-colors">
+              <Link href="#projects" className="rounded-full px-6 py-3 bg-[#111] text-white text-sm font-medium hover:bg-black transition-colors">
                 View Projects
               </Link>
-              <Link href="#" className="px-6 py-3 bg-white border border-gray-300 text-[#111] text-sm font-medium rounded hover:bg-gray-50 transition-colors">
+              <Link href="#" className="rounded-full px-6 py-3 bg-white border border-gray-300 text-[#111] text-sm font-medium hover:bg-gray-50 transition-colors">
                 Download CV
               </Link>
             </div>

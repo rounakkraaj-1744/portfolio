@@ -24,10 +24,10 @@ export default function Navbar() {
       scrolled ? "bg-[#F4F3EF]/90 backdrop-blur-md border-b border-gray-200" : "bg-transparent"
     )}>
       <div className="mx-auto px-4 md:px-6 lg:px-8 flex justify-between items-center h-20" style={{ maxWidth: "var(--max-container)" }}>
-        
+
         {/* Logo */}
         <Link href="#home" className="text-xl font-bold tracking-tight text-[#111]">
-          Fouraikk.
+          Rounakk
         </Link>
 
         {/* Center Links */}
