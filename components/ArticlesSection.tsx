@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Bookmark } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 import Section from "./Section"
 import { articles, personalInfo } from "@/lib/constants"
 
@@ -12,60 +12,51 @@ export default function Articles() {
     const displayedArticles = showAll ? articles : articles.slice(0, 3)
 
     return (
-        <Section id="articles" number="06" title="Engineering Writing"
-            headerExtra={
-                <Link href={personalInfo.github} target="_blank" className="text-[10px] font-mono text-primary hover:underline" >
-                    View all on Medium →
-                </Link>
-            }
-        >
-            <div className="article-list">
+        <Section id="articles" title="Articles">
+            <div className="flex flex-col gap-8 mb-12">
                 {displayedArticles.map((article, index) => (
-                    <Link key={index} href={article.url} target="_blank" className="group block">
-                        <article className="article-card">
-                            <div className="article-card-content">
-                                <div className="article-meta-line">
-                                    <div className="article-avatar">
-                                        <Image src="/myimage.jpg" alt={personalInfo.name} fill className="object-cover" />
-                                    </div>
-                                    <span className="article-author">{personalInfo.name}</span>
-                                    <span className="article-meta-sep">·</span>
-                                    <span className="article-meta-label">in</span>
-                                    <span className="article-publication">{article.publication}</span>
-                                    <span className="article-meta-sep">·</span>
-                                    <span className="article-date">{article.date}</span>
+                    <Link key={index} href={article.url} target="_blank" className="group flex flex-col sm:flex-row gap-6 sm:gap-10 pb-8 border-b border-gray-200 last:border-0 hover-lift">
+                        
+                        <div className="flex-1 order-2 sm:order-1">
+                            {/* Meta Info */}
+                            <div className="flex items-center gap-2 mb-3">
+                                <div className="relative w-6 h-6 rounded-full overflow-hidden shrink-0">
+                                    <Image src="/myimage.jpg" alt={personalInfo.name} fill className="object-cover" />
                                 </div>
-
-                                <h3 className="article-title">
-                                    {article.title}
-                                </h3>
-                                <p className="article-description">
-                                    {article.description}
-                                </p>
-
-                                <div className="article-bottom-meta">
-                                    <span className="article-read-time">{article.readTime}</span>
-                                    <span className="article-meta-sep">·</span>
-                                    <span className="article-tag">{article.tag}</span>
-                                    <Bookmark className="article-bookmark" />
-                                </div>
+                                <span className="text-sm font-semibold text-[#111]">{personalInfo.name}</span>
+                                <span className="text-gray-400 text-xs px-1">•</span>
+                                <span className="text-sm text-gray-500">{article.date}</span>
                             </div>
 
-                            <div className="article-thumbnail">
-                                <Image src={article.thumbnail} alt={article.title} fill className="object-cover" sizes="(max-width: 640px) 100px, 180px" />
+                            {/* Title & Description */}
+                            <h3 className="text-xl sm:text-2xl font-bold text-[#111] leading-tight mb-3 group-hover:text-blue-600 transition-colors">
+                                {article.title}
+                            </h3>
+                            <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4 line-clamp-2 md:line-clamp-3">
+                                {article.description}
+                            </p>
+
+                            {/* Footer tags */}
+                            <div className="flex items-center gap-3 mt-4">
+                                <span className="text-xs text-gray-400">{article.readTime}</span>
                             </div>
-                        </article>
+                        </div>
+
+                        {/* Thumbnail */}
+                        <div className="order-1 sm:order-2 shrink-0">
+                            <div className="relative w-full h-48 sm:w-56 sm:h-36 rounded-xl overflow-hidden shadow-sm border border-gray-100 bg-gray-50">
+                                <Image src={article.thumbnail} alt={article.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                            </div>
+                        </div>
                     </Link>
                 ))}
             </div>
 
-            {articles.length > 3 && (
-                <div className="flex justify-center mt-8">
-                    <button onClick={() => setShowAll(!showAll)} className="text-[10px] font-mono px-6 py-2 border border-border rounded bg-card hover:border-primary/50 hover:text-primary transition-all duration-200" >
-                        {showAll ? "./show_less.sh" : "./see_more.sh"}
-                    </button>
-                </div>
-            )}
+            <div className="flex justify-center">
+                <Link href={personalInfo.linkedin} target="_blank" className="inline-flex items-center gap-1.5 text-blue-600 font-medium hover:text-blue-700 transition-colors">
+                    Read all on Medium <ArrowUpRight className="w-4 h-4" />
+                </Link>
+            </div>
         </Section>
     )
 }
