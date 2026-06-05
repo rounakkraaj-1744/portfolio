@@ -147,6 +147,7 @@ export const projects: Project[] = [
             "LangChain",
         ],
         github: "https://github.com/rounakkraaj-1744",
+        image: "/sab.png",
     },
     {
         title: "Observability Platform",
@@ -174,38 +175,7 @@ export const projects: Project[] = [
             "Prometheus",
         ],
         github: "https://github.com/rounakkraaj-1744",
-    },
-    {
-        title: "Hiralyze — AI-Powered Hiring Platform",
-        emoji: "🤖",
-        description:
-            "Built AI-driven hiring system for resume summarization, candidate ranking, and job-role matching. Implemented multi-agent workflows, reducing recruiter screening effort by 50%.",
-        items: [
-            {
-                tag: "CHALLENGE",
-                type: "problem",
-                text: "Multi-agent workflows for resume analysis at scale.",
-            },
-            {
-                tag: "SOLUTION",
-                type: "solution",
-                text: "LangChain + LangGraph multi-agent pipelines with Groq & Gemini APIs.",
-            },
-            {
-                tag: "RESULT",
-                type: "result",
-                text: "Reduced recruiter screening effort by 50%.",
-            },
-        ],
-        tags: [
-            "TypeScript",
-            "Express.js",
-            "LangChain",
-            "LangGraph",
-            "Python",
-            "FastAPI",
-        ],
-        github: "https://github.com/rounakkraaj-1744",
+        image: "/cloudops.png",
     },
 ]
 

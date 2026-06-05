@@ -20,8 +20,8 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Rounakk Raaj | Platform Engineer",
-  description: "Platform engineer scaling 100k+ RPS.",
+  title: "Rounakk Raaj Sabat| Backend Engineer",
+  description: "Developing and Scaling Backend Systems",
 }
 
 export default function RootLayout({

@@ -6,7 +6,6 @@ export default function Footer() {
     <footer className="bg-[#1A1A24] text-white pt-24 pb-8">
       <div className="container mx-auto px-4 md:px-6 lg:px-8" style={{ maxWidth: "var(--max-container)" }}>
 
-        {/* Big CTA */}
         <div className="text-center mb-24">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-8">
             Let&apos;s build something<br />that scales.

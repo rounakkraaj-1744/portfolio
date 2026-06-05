@@ -31,6 +31,7 @@ export interface Project {
     items: ProjectItem[]
     tags: string[]
     github: string
+    image?: string
 }
 
 export interface SkillItem {

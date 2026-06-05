@@ -4,6 +4,7 @@ import { MoveRight, MoveLeft, Github } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 type Carousel = {
   title: string,
@@ -16,6 +17,7 @@ type Carousel = {
   }[],
   tags: string[],
   github: string,
+  image?: string,
 };
 
 interface Props {
@@ -58,7 +60,7 @@ export const AnimatedCarousel = ({ carousels, autoplay = false }:Props) => {
     <div className="mx-auto max-w-sm px-4 py-8 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12">
       <div className="relative grid grid-cols-1 gap-12 md:gap-20 md:grid-cols-2">
         <div>
-          <div className="relative h-64 sm:h-80 w-full">
+          <div className="relative h-80 sm:h-96 w-full">
             <AnimatePresence>
               {carousels.map((carousel, index) => (
                 <motion.div
@@ -91,9 +93,20 @@ export const AnimatedCarousel = ({ carousels, autoplay = false }:Props) => {
                   }}
                   className="absolute inset-0 origin-bottom"
                 >
-                  <div className="h-full w-full rounded-3xl bg-gray-50 flex flex-col items-center justify-center border border-gray-200 shadow-sm overflow-hidden p-6 text-center">
-                    <span className="text-6xl sm:text-8xl mb-4 group-hover:scale-110 transition-transform duration-300">{carousel.emoji}</span>
-                    <span className="text-[#111] font-bold text-lg sm:text-xl">{carousel.title.replace(/[\u{1F300}-\u{1F9FF}]/gu, '').trim()}</span>
+                  <div className="h-full w-full rounded-3xl bg-gray-50 flex flex-col items-center justify-center border border-gray-200 shadow-sm overflow-hidden p-6 text-center relative">
+                    {carousel.image ? (
+                      <Image
+                        src={carousel.image}
+                        alt={carousel.title}
+                        fill
+                        className="object-cover"
+                      />
+                    ) : (
+                      <>
+                        <span className="text-6xl sm:text-8xl mb-4 group-hover:scale-110 transition-transform duration-300">{carousel.emoji}</span>
+                        <span className="text-[#111] font-bold text-lg sm:text-xl">{carousel.title.replace(/[\u{1F300}-\u{1F9FF}]/gu, '').trim()}</span>
+                      </>
+                    )}
                   </div>
                 </motion.div>
               ))}

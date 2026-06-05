@@ -11,7 +11,7 @@
 
 @layer base {
   :root {
-    --background: 40 25% 96%; /* #F6F5F0 cream background */
+    --background: 40 25% 96%;
     --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
@@ -22,7 +22,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    --primary: 221 83% 53%; /* vibrant blue #2563EB */
+    --primary: 221 83% 53%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 210 40% 96.1%;
@@ -44,11 +44,10 @@
     --radius: 0.75rem;
     
     --max-container: 1000px;
-    --footer-bg: 233 22% 16%; /* Dark footer */
+    --footer-bg: 233 22% 16%;
   }
 
   .dark {
-    /* Hardcode light mode to override anything */
     --background: 40 25% 96%;
     --foreground: 222 47% 11%;
     --card: 0 0% 100%;
@@ -79,7 +78,7 @@
   
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 6rem; /* Accounts for the fixed navbar height */
+    scroll-padding-top: 6rem;
   }
 
   body {
@@ -105,7 +104,6 @@
   }
 }
 
-/* Base custom styles */
 .section-title {
   @apply text-xl font-bold tracking-tight inline-block relative mb-8 font-serif;
 }

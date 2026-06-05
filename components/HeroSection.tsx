@@ -11,21 +11,13 @@ export default function Hero() {
     threshold: 0.1,
   })
 
-  // The scrolling text items
   const techMarquee = ["NODEJS", "EXPRESSJS", "NESTJS", "AWS", "MONGODB", "POSTGRESQL", "REDIS", "JAVA", "DOCKER", "KUBERNETES", "C", "DISTRIBUTED SYSTEMS"]
 
   return (
     <div className="flex flex-col mb-16 md:mb-24 bg-[#F4F3EF]">
-      {/* 
-        By removing min-h-screen and using fixed flexible padding (pb-20 md:pb-28), 
-        the marquee is brought organically up closer to the text rather than snapping to the extreme bottom of large monitors. 
-      */}
+
       <section id="home" className="pt-32 pb-20 md:pb-28 flex items-center">
-        <div 
-          ref={ref} 
-          className={`container mx-auto px-4 md:px-6 lg:px-8 transition-all duration-700 ease-out ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`} 
-          style={{ maxWidth: "var(--max-container)" }} 
-        >
+        <div ref={ref} className={`container mx-auto px-4 md:px-6 lg:px-8 transition-all duration-700 ease-out ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`} style={{ maxWidth: "var(--max-container)" }} >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             
             <div className="order-2 lg:order-1">
