@@ -2,7 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { DM_Sans, Fraunces, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
-import Navbar from "@/components/Navbar"
+import NavbarWrapper from "@/components/NavbarWrapper"
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${dmSans.variable} ${fraunces.variable} ${jetbrainsMono.variable} font-sans antialiased bg-[#F4F3EF] text-[#111111]`}>
-        <Navbar />
+        <NavbarWrapper />
         {children}
       </body>
     </html>

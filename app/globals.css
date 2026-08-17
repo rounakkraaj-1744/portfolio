@@ -119,3 +119,35 @@
 .pill-badge {
   @apply inline-flex items-center justify-center rounded-full text-xs font-medium px-2.5 py-0.5 whitespace-nowrap font-mono;
 }
+
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  * {
+    border-color: #ddd !important;
+  }
+
+  a {
+    color: black !important;
+    text-decoration: none !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
+
+@media print {
+  main {
+    background: white !important;
+    color: black !important;
+  }
+}

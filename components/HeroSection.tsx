@@ -37,9 +37,9 @@ export default function Hero() {
                 <Link href="#projects" className="rounded-full px-6 py-3 bg-[#111] text-white text-sm font-medium hover:bg-black transition-colors">
                   View Projects
                 </Link>
-                <Link href="#" className="rounded-full px-6 py-3 bg-white border border-gray-300 text-[#111] text-sm font-medium hover:bg-gray-50 transition-colors">
+                <a href="/resume.pdf" download className="rounded-full px-6 py-3 bg-white border border-gray-300 text-[#111] text-sm font-medium hover:bg-gray-50 transition-colors">
                   Download CV
-                </Link>
+                </a>
               </div>
             </div>
 
