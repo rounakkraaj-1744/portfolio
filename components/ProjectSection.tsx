@@ -7,7 +7,7 @@ import { AnimatedCarousel } from "@/components/ui/animated-carousel"
 export default function Projects() {
   return (
     <Section id="projects" title="Selected Projects">
-      <AnimatedCarousel carousels={projects as any} />
+      <AnimatedCarousel carousels={projects} />
     </Section>
   )
 }

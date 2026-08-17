@@ -1,0 +1,8 @@
+{
+  "buildCommand": "next build",
+  "installCommand": "bun install",
+  "outputDirectory": ".next",
+  "env": {
+    "NEXT_PUBLIC_DISABLE_GOOGLE_FONTS": "false"
+  }
+}
