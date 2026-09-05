@@ -2,109 +2,88 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { useInView } from "react-intersection-observer"
-import { personalInfo } from "@/lib/constants"
+import { ArrowRight, Download } from "lucide-react"
 
 export default function Hero() {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  })
-
-  const techMarquee = ["NODEJS", "EXPRESSJS", "NESTJS", "AWS", "MONGODB", "POSTGRESQL", "REDIS", "JAVA", "DOCKER", "KUBERNETES", "C", "DISTRIBUTED SYSTEMS"]
-
   return (
-    <div className="flex flex-col mb-16 md:mb-24 bg-[#F4F3EF]">
-
-      <section id="home" className="pt-32 pb-20 md:pb-28 flex items-center">
-        <div ref={ref} className={`container mx-auto px-4 md:px-6 lg:px-8 transition-all duration-700 ease-out ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`} style={{ maxWidth: "var(--max-container)" }} >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+    <section className="pt-28 pb-12 sm:pt-36 sm:pb-16">
+      <div className="max-w-[1120px] mx-auto px-6 sm:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          <div className="lg:col-span-7 flex flex-col items-start pr-0 lg:pr-4">
             
-            <div className="order-2 lg:order-1">
-              <span className="inline-flex items-center rounded-sm bg-blue-100/50 px-2 py-1 text-[10px] font-semibold text-blue-600 tracking-widest uppercase mb-6">
-                BACKEND ENGINEER
-              </span>
+            <p className="text-[11px] font-bold text-gray-500 tracking-[0.16em] uppercase font-mono mb-4">
+              BACKEND / DISTRIBUTED SYSTEMS / CLOUD
+            </p>
 
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[64px] font-bold tracking-tight text-[#111] leading-[1.05] mb-6">
-                Building Systems That Don&apos;t Break.
-              </h1>
+            <h1 className="text-4xl sm:text-5xl lg:text-[62px] font-bold text-[#111111] leading-[1.06] tracking-tight font-serif mb-5">
+              I build<br />
+              backend systems<br />
+              that survive<br />
+              production.
+            </h1>
 
-              <p className="text-gray-500 text-lg md:text-xl leading-relaxed mb-10 max-w-[480px]">
-                Distributed systems reliability, high-concurrency APIs, and cloud-native infrastructure — scaling to 100k+ RPS.
-              </p>
+            <p className="text-base sm:text-[17px] text-gray-600 leading-relaxed max-w-[480px] mb-8 font-normal">
+              Distributed systems, real-time data pipelines, high-concurrency APIs, and cloud infrastructure built for impact.
+            </p>
 
-              <div className="flex flex-wrap items-center gap-4">
-                <Link href="#projects" className="rounded-full px-6 py-3 bg-[#111] text-white text-sm font-medium hover:bg-black transition-colors">
-                  View Projects
-                </Link>
-                <a href="/resume.pdf" download className="rounded-full px-6 py-3 bg-white border border-gray-300 text-[#111] text-sm font-medium hover:bg-gray-50 transition-colors">
-                  Download CV
-                </a>
-              </div>
+            <div className="flex flex-wrap items-center gap-3.5 mb-12 sm:mb-14">
+              <Link href="#work" className="theme-cta inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#111111] text-white dark:bg-[#F7F5F0] dark:text-[#111318] dark:hover:bg-white text-[13px] font-medium hover:bg-black transition-all shadow-xs">
+                View my work <ArrowRight className="w-4 h-4" />
+              </Link>
+              <a href="/resume.pdf" download className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#D5D3CC] bg-white/60 text-[#111111] text-[13px] font-medium hover:bg-white transition-all shadow-2xs">
+                Download CV <Download className="w-4 h-4" />
+              </a>
             </div>
 
-            <div className="order-1 lg:order-2 flex justify-center lg:justify-end relative">
-              <div className="relative w-[280px] h-[340px] md:w-[360px] md:h-[440px] mx-auto">
-                <div 
-                  className="absolute inset-0 bg-transparent overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)]"
-                  style={{ borderRadius: "54% 46% 38% 62% / 46% 54% 46% 54%" }}
-                >
-                  <Image 
-                    src="/myimage.jpg" 
-                    alt={personalInfo.name} 
-                    fill 
-                    className="object-cover object-center"
-                    priority
-                  />
-                </div>
-                
-                {/* Badges */}
-                <div className="absolute top-10 -left-6 lg:left-0 bg-white shadow-xl rounded-xl px-4 py-3 flex items-center gap-3">
-                  <span className="text-xl">⚙️</span>
-                  <div className="flex flex-col">
-                    <span className="text-xl font-bold text-[#111] leading-none">6+</span>
-                    <span className="text-[10px] text-gray-500 font-semibold uppercase tracking-wider">M requests</span>
-                  </div>
-                </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-6 pt-6 border-t border-[#E7E5DE] w-full">
+              <div>
+                <p className="text-2xl sm:text-[26px] font-bold text-[#111111] tracking-tight">
+                  6M+
+                </p>
+                <p className="text-[11px] sm:text-[12px] text-gray-500 font-normal mt-0.5 whitespace-nowrap">
+                  API requests handled
+                </p>
+              </div>
 
-                <div className="absolute bottom-10 -right-6 lg:right-4 bg-white shadow-xl rounded-xl px-4 py-3 flex items-center gap-3">
-                  <span className="text-xl">💼</span>
-                  <div className="flex flex-col">
-                    <span className="text-sm font-bold text-[#111] leading-none mb-1">1.5+ Years</span>
-                    <span className="text-[10px] text-gray-500 font-semibold uppercase tracking-wider">Work Experience</span>
-                  </div>
-                </div>
+              <div>
+                <p className="text-2xl sm:text-[26px] font-bold text-[#111111] tracking-tight">
+                  1M+
+                </p>
+                <p className="text-[11px] sm:text-[12px] text-gray-500 font-normal mt-0.5 whitespace-nowrap">
+                  Data points / day
+                </p>
+              </div>
+
+              <div>
+                <p className="text-2xl sm:text-[26px] font-bold text-[#111111] tracking-tight">
+                  35%
+                </p>
+                <p className="text-[11px] sm:text-[12px] text-gray-500 font-normal mt-0.5 whitespace-nowrap">
+                  Faster deployments
+                </p>
+              </div>
+
+              <div>
+                <p className="text-2xl sm:text-[26px] font-bold text-[#111111] tracking-tight">
+                  &lt; 200ms
+                </p>
+                <p className="text-[11px] sm:text-[12px] text-gray-500 font-normal mt-0.5 whitespace-nowrap">
+                  Real-time latency
+                </p>
               </div>
             </div>
 
           </div>
-        </div>
-      </section>
 
-      {/* Marquee Banner */}
-      <div className="w-full bg-[#111] py-4 overflow-hidden flex border-y border-white/10">
-        <div className="whitespace-nowrap flex items-center animate-spin-slow" style={{ animation: "marquee 40s linear infinite" }}>
-          {[...Array(3)].map((_, i) => (
-            <div key={i} className="flex items-center shrink-0">
-              {techMarquee.map((tech, j) => (
-                <div key={`${i}-${j}`} className="flex items-center">
-                  <span className="text-white text-sm font-bold tracking-widest px-8 font-mono">
-                    {tech}
-                  </span>
-                  <span className="text-gray-500 text-[10px]">►</span>
-                </div>
-              ))}
+          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+            <div className="relative w-full max-w-[430px] aspect-[4/4.9] rounded-[28px] overflow-hidden shadow-lg border border-black/5 bg-[#2B3542]">
+              <Image src="/hero-mountain.png" alt="Rounakk - Building scalable systems" fill priority className="object-cover object-center"/>
             </div>
-          ))}
+          </div>
+
         </div>
       </div>
-      
-      <style dangerouslySetInnerHTML={{__html: `
-        @keyframes marquee {
-          0% { transform: translateX(0%); }
-          100% { transform: translateX(-33.33%); }
-        }
-      `}} />
-    </div>
+    </section>
   )
 }

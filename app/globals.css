@@ -2,152 +2,97 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'NeueMontreal';
-  src: url('https://fonts.cdnfonts.com/css/neue-montreal') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
 @layer base {
   :root {
-    --background: 40 25% 96%;
-    --foreground: 222 47% 11%;
+    --background: 43 23% 95%;
+    --foreground: 220 14% 7%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 220 14% 7%;
     
-    --card-alt: 0 0% 98%;
+    --card-alt: 43 20% 98%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 220 14% 7%;
 
-    --primary: 221 83% 53%;
+    --primary: 220 14% 7%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 40 10% 92%;
+    --secondary-foreground: 220 14% 7%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 40 8% 90%;
+    --muted-foreground: 220 9% 46%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 40 12% 94%;
+    --accent-foreground: 220 14% 7%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 40 12% 88%;
+    --input: 40 12% 88%;
+    --ring: 220 14% 7%;
 
-    --radius: 0.75rem;
-    
-    --max-container: 1000px;
-    --footer-bg: 233 22% 16%;
+    --radius: 1rem;
+    --max-container: 1120px;
   }
 
-  .dark {
-    --background: 40 25% 96%;
-    --foreground: 222 47% 11%;
-    --card: 0 0% 100%;
-    --card-alt: 0 0% 98%;
-    --card-foreground: 222 47% 11%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-    --primary: 221 83% 53%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-  }
-}
-
-@layer base {
   * {
-    @apply border-border;
+    border-color: #E7E5DE;
   }
   
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 6rem;
+    scroll-padding-top: 5rem;
+    background-color: #F7F5F0;
   }
 
   body {
-    @apply bg-background text-foreground antialiased font-sans;
+    background-color: #F7F5F0;
+    color: #111111;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
-  h1, h2, h3, h4, h5, h6, .display-heading {
-    @apply font-serif;
+  .dark {
+    --background: 220 14% 9%;
+    --foreground: 43 23% 95%;
+    --card: 220 13% 13%;
+    --card-foreground: 43 23% 95%;
+    --card-alt: 220 12% 16%;
+    --border: 220 10% 24%;
+    --muted-foreground: 220 8% 67%;
+  }
+
+  .dark html, html.dark { background-color: #111318; }
+  .dark body, .dark main, .dark footer { background-color: #111318 !important; color: #f7f5f0 !important; }
+  .dark .bg-white, .dark .bg-white\/60 { background-color: #1b1e25 !important; }
+  .dark .bg-\[\#F7F5F0\], .dark .bg-\[\#F4F3EF\] { background-color: #111318 !important; }
+  .dark .text-\[\#111111\], .dark .text-\[\#111\] { color: #f7f5f0 !important; }
+  .dark .text-gray-600 { color: #b4b5bb !important; }
+  .dark .text-gray-500 { color: #9699a2 !important; }
+  .dark .border-\[\#E7E5DE\], .dark .border-\[\#D5D3CC\], .dark .border-\[\#F0EEE8\] { border-color: #30343d !important; }
+  .dark .bg-\[\#F2F0E8\] { background-color: #292d35 !important; color: #e5e5e5 !important; }
+  html.dark header .text-\[\#111111\] { color: #f7f5f0 !important; }
+  html.dark a.bg-\[\#111111\] { background-color: #f7f5f0 !important; color: #111318 !important; }
+  html.dark a.bg-\[\#111111\]:hover { background-color: #ffffff !important; }
+  html.dark .theme-cta { background-color: #f7f5f0 !important; color: #111318 !important; }
+  html.dark .theme-cta:hover { background-color: #ffffff !important; color: #111318 !important; }
+  html.dark footer .social-link:hover { color: #ffffff !important; }
+
+  h1, h2, h3, h4, h5, h6, .editorial-heading {
+    font-family: var(--font-fraunces), Georgia, serif;
+    font-feature-settings: "liga" 1, "calt" 1;
+    letter-spacing: -0.025em;
   }
 }
 
 @layer utilities {
-  .section-padding {
-    @apply py-16 md:py-24;
-  }
-  
   .hover-lift {
-    @apply transition-all duration-300 ease-out;
+    @apply transition-all duration-200 ease-out;
   }
   .hover-lift:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
-  }
-}
-
-.section-title {
-  @apply text-xl font-bold tracking-tight inline-block relative mb-8 font-serif;
-}
-.section-title::after {
-  content: '';
-  @apply absolute -bottom-1 left-0 w-full h-[3px] bg-primary scale-x-100 origin-left;
-}
-
-.card-base {
-  @apply bg-card rounded-md border border-gray-100 shadow-sm overflow-hidden;
-}
-
-.pill-badge {
-  @apply inline-flex items-center justify-center rounded-full text-xs font-medium px-2.5 py-0.5 whitespace-nowrap font-mono;
-}
-
-@media print {
-  @page {
-    size: A4;
-    margin: 14mm;
-  }
-
-  body {
-    background: white !important;
-    color: black !important;
-  }
-
-  * {
-    border-color: #ddd !important;
-  }
-
-  a {
-    color: black !important;
-    text-decoration: none !important;
-  }
-
-  .no-print {
-    display: none !important;
-  }
-}
-
-@media print {
-  main {
-    background: white !important;
-    color: black !important;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
   }
 }

@@ -1,37 +1,44 @@
+"use client"
+
 import Link from "next/link"
+import { Github, Linkedin, Mail } from "lucide-react"
 import { personalInfo } from "@/lib/constants"
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1A1A24] text-white pt-24 pb-8">
-      <div className="container mx-auto px-4 md:px-6 lg:px-8" style={{ maxWidth: "var(--max-container)" }}>
+    <footer className="w-full border-t border-[#E7E5DE] py-10 bg-[#F7F5F0]">
+      <div className="max-w-[1120px] mx-auto px-6 sm:px-8">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          
+          <div>
+            <h3 className="text-base font-bold text-[#111111] tracking-tight">
+              Rounakk
+            </h3>
+            <p className="text-xs text-gray-500 mt-0.5 font-normal">
+              Building for a more reliable future.
+            </p>
+          </div>
 
-        <div className="text-center mb-24">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-8">
-            Let&apos;s build something<br />that scales.
-          </h2>
+          <div className="flex items-center gap-5 text-gray-700 dark:text-gray-300">
+            <Link href={personalInfo.github} target="_blank" rel="noreferrer" className="social-link hover:text-black dark:hover:text-white transition-colors" aria-label="GitHub">
+              <Github className="w-4 h-4" />
+            </Link>
 
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 text-sm font-medium text-gray-400">
-            <Link href={personalInfo.github} target="_blank" className="hover:text-white transition-colors">
-              Github
+            <Link href={personalInfo.linkedin} target="_blank" rel="noreferrer" className="social-link hover:text-black dark:hover:text-white transition-colors" aria-label="LinkedIn">
+              <Linkedin className="w-4 h-4" />
             </Link>
-            <Link href={personalInfo.linkedin} target="_blank" className="hover:text-white transition-colors">
-              LinkedIn
+
+            <Link href="https://twitter.com/rounakkraaj" target="_blank" rel="noreferrer" className="social-link hover:text-black dark:hover:text-white transition-colors" aria-label="X (Twitter)">
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
             </Link>
-            <Link href={`mailto:${personalInfo.email}`} className="hover:text-white transition-colors">
-              Email
-            </Link>
-            <Link href="https://rounakkraajsabat.medium.com" target="_blank" className="hover:text-white transition-colors">
-              Medium
+
+            <Link href={`mailto:${personalInfo.email}`} className="social-link hover:text-black dark:hover:text-white transition-colors" aria-label="Email">
+              <Mail className="w-4 h-4" />
             </Link>
           </div>
-        </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-white/10 text-xs text-gray-500 font-medium">
-          <p className="text-lg font-bold text-white tracking-tight">Rounakk</p>
-          <p>
-            {personalInfo.name} © {new Date().getFullYear()} • Platform Engineer • All Rights Reserved
-          </p>
         </div>
       </div>
     </footer>

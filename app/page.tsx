@@ -1,22 +1,20 @@
 import Hero from "@/components/HeroSection"
-import Skills from "@/components/SkillSection"
+import TechStrip from "@/components/SkillSection"
 import Projects from "@/components/ProjectSection"
 import Experience from "@/components/ExperienceSection"
-import About from "@/components/AboutSection"
-import DebuggingStories from "@/components/DebuggingStoriesSection"
-import Articles from "@/components/ArticlesSection"
+import EngineeringSection from "@/components/EngineeringSection"
+import WritingAndAboutSection from "@/components/WritingAndAboutSection"
 import Footer from "@/components/Footer"
 
 export default function Home() {
   return (
-    <main>
+    <main className="min-h-screen bg-[#F7F5F0] text-[#111111] overflow-x-hidden">
       <Hero />
-      <Experience />
+      <TechStrip />
       <Projects />
-      <Skills />
-      <DebuggingStories />
-      <Articles />
-      <About />
+      <Experience />
+      <EngineeringSection />
+      <WritingAndAboutSection />
       <Footer />
     </main>
   )

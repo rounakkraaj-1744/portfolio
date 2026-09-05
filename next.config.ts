@@ -10,6 +10,11 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "miro.medium.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
         hostname: "fonts.googleapis.com",
         pathname: "/**",
       },

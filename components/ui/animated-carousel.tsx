@@ -57,10 +57,10 @@ export const AnimatedCarousel = ({ carousels, autoplay = false }:Props) => {
   if(!carousels || carousels.length === 0) return null;
 
   return (
-    <div className="mx-auto max-w-sm px-4 py-8 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12">
-      <div className="relative grid grid-cols-1 gap-12 md:gap-20 md:grid-cols-2">
+    <div className="mx-auto max-w-sm px-4 py-8 font-sans antialiased md:max-w-6xl md:px-8 lg:max-w-7xl lg:px-12 ">
+      <div className="relative grid grid-cols-1 gap-10 md:grid-cols-[1.2fr_0.8fr] md:gap-12 lg:gap-16">
         <div>
-          <div className="relative h-80 sm:h-96 w-full">
+          <div className="relative w-full aspect-video">
             <AnimatePresence>
               {carousels.map((carousel, index) => (
                 <motion.div
@@ -93,19 +93,28 @@ export const AnimatedCarousel = ({ carousels, autoplay = false }:Props) => {
                   }}
                   className="absolute inset-0 origin-bottom"
                 >
-                  <div className="h-full w-full rounded-3xl bg-gray-50 flex flex-col items-center justify-center border border-gray-200 shadow-sm overflow-hidden p-6 text-center relative">
+                  <div className="relative h-full w-full overflow-visible rounded-3xl">
                     {carousel.image ? (
                       <Image
                         src={carousel.image}
                         alt={carousel.title}
                         fill
-                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 60vw"
+                        className="object-contain"
+                        priority={index === active}
                       />
                     ) : (
-                      <>
-                        <span className="text-6xl sm:text-8xl mb-4 group-hover:scale-110 transition-transform duration-300">{carousel.emoji}</span>
-                        <span className="text-[#111] font-bold text-lg sm:text-xl">{carousel.title.replace(/[\u{1F300}-\u{1F9FF}]/gu, '').trim()}</span>
-                      </>
+                      <div className="h-full w-full rounded-3xl bg-gray-50 flex flex-col items-center justify-center border border-gray-200 shadow-sm">
+                        <span className="text-6xl sm:text-8xl mb-4">
+                          {carousel.emoji}
+                        </span>
+        
+                        <span className="text-[#111] font-bold text-lg sm:text-xl">
+                          {carousel.title
+                            .replace(/[\u{1F300}-\u{1F9FF}]/gu, "")
+                            .trim()}
+                        </span>
+                      </div>
                     )}
                   </div>
                 </motion.div>
