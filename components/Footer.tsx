@@ -6,7 +6,7 @@ import { personalInfo } from "@/lib/constants"
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-[#E7E5DE] py-10 bg-[#F7F5F0]">
+    <footer className="w-full border-t border-[#E7E5DE] dark:border-[#30343D] py-10 bg-[#F7F5F0] dark:bg-[#111318]">
       <div className="max-w-[1120px] mx-auto px-6 sm:px-8">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           

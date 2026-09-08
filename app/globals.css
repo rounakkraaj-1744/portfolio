@@ -64,27 +64,84 @@
     --muted-foreground: 220 8% 67%;
   }
 
-  .dark html, html.dark { background-color: #111318; }
-  .dark body, .dark main, .dark footer { background-color: #111318 !important; color: #f7f5f0 !important; }
-  .dark .bg-white, .dark .bg-white\/60 { background-color: #1b1e25 !important; }
-  .dark .bg-\[\#F7F5F0\], .dark .bg-\[\#F4F3EF\] { background-color: #111318 !important; }
-  .dark .text-\[\#111111\], .dark .text-\[\#111\] { color: #f7f5f0 !important; }
-  .dark .text-gray-600 { color: #b4b5bb !important; }
-  .dark .text-gray-500 { color: #9699a2 !important; }
-  .dark .border-\[\#E7E5DE\], .dark .border-\[\#D5D3CC\], .dark .border-\[\#F0EEE8\] { border-color: #30343d !important; }
-  .dark .bg-\[\#F2F0E8\] { background-color: #292d35 !important; color: #e5e5e5 !important; }
-  html.dark header .text-\[\#111111\] { color: #f7f5f0 !important; }
-  html.dark a.bg-\[\#111111\] { background-color: #f7f5f0 !important; color: #111318 !important; }
-  html.dark a.bg-\[\#111111\]:hover { background-color: #ffffff !important; }
-  html.dark .theme-cta { background-color: #f7f5f0 !important; color: #111318 !important; }
-  html.dark .theme-cta:hover { background-color: #ffffff !important; color: #111318 !important; }
-  html.dark footer .social-link:hover { color: #ffffff !important; }
+  html.dark, .dark html {
+    background-color: #111318;
+  }
+
+  .dark body, html.dark body {
+    background-color: #111318;
+    color: #F7F5F0;
+  }
 
   h1, h2, h3, h4, h5, h6, .editorial-heading {
     font-family: var(--font-fraunces), Georgia, serif;
     font-feature-settings: "liga" 1, "calt" 1;
     letter-spacing: -0.025em;
   }
+}
+
+/* Primary CTA Button (Inverts in Dark Mode) */
+.btn-primary {
+  background-color: #111111 !important;
+  color: #ffffff !important;
+}
+.btn-primary:hover {
+  background-color: #000000 !important;
+}
+html.dark .btn-primary,
+.dark .btn-primary {
+  background-color: #F7F5F0 !important;
+  color: #111318 !important;
+}
+html.dark .btn-primary:hover,
+.dark .btn-primary:hover {
+  background-color: #ffffff !important;
+  color: #111318 !important;
+}
+
+/* Secondary Button */
+.btn-secondary {
+  border: 1px solid #D5D3CC !important;
+  background-color: rgba(255, 255, 255, 0.6) !important;
+  color: #111111 !important;
+}
+.btn-secondary:hover {
+  background-color: #ffffff !important;
+}
+html.dark .btn-secondary,
+.dark .btn-secondary {
+  border-color: #30343D !important;
+  background-color: #1B1E25 !important;
+  color: #F7F5F0 !important;
+}
+html.dark .btn-secondary:hover,
+.dark .btn-secondary:hover {
+  background-color: #252830 !important;
+  color: #ffffff !important;
+}
+
+/* General Dark Mode Elements */
+.dark .bg-white {
+  background-color: #1B1E25;
+}
+.dark .border-\[\#E7E5DE\],
+.dark .border-\[\#D5D3CC\],
+.dark .border-\[\#F0EEE8\] {
+  border-color: #30343D;
+}
+.dark .text-\[\#111111\],
+.dark .text-\[\#111\] {
+  color: #F7F5F0;
+}
+.dark .text-gray-600 {
+  color: #B4B5BB;
+}
+.dark .text-gray-500 {
+  color: #9699A2;
+}
+.dark .bg-\[\#F2F0E8\] {
+  background-color: #292D35;
+  color: #E5E5E5;
 }
 
 @layer utilities {
@@ -94,5 +151,16 @@
   .hover-lift:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

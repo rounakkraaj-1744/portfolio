@@ -77,7 +77,7 @@ const techs = [
 
 export default function TechStrip() {
   return (
-    <div className="w-full border-y border-[#E7E5DE] py-3.5 bg-[#F7F5F0]">
+    <div className="w-full border-y border-[#E7E5DE] dark:border-[#30343D] py-3.5 bg-[#F7F5F0] dark:bg-[#111318]">
       <div className="max-w-[1120px] mx-auto px-6 sm:px-8">
         <div className="flex flex-wrap items-center justify-between gap-y-3 gap-x-6">
           <div className="flex items-center shrink-0">
@@ -90,9 +90,9 @@ export default function TechStrip() {
             {techs.map((tech) => (
               <div
                 key={tech.name}
-                className="flex items-center gap-1.5 text-[#111111] hover:text-black transition-colors"
+                className="flex items-center gap-1.5 text-[#111111] dark:text-[#F7F5F0] hover:text-black dark:hover:text-white transition-colors"
               >
-                <span className="text-gray-700 flex items-center">{tech.icon}</span>
+                <span className="text-gray-700 dark:text-gray-300 flex items-center">{tech.icon}</span>
                 <span className="text-xs font-semibold tracking-tight">{tech.name}</span>
               </div>
             ))}

@@ -12,6 +12,16 @@ function clean(value: string) {
     .replace(/\s+/g, " ").trim()
 }
 
+function getReadTime(content: string) {
+  const words = clean(content).split(/\s+/).filter(Boolean).length
+  return words ? `${Math.max(1, Math.ceil(words / 200))} min read` : ""
+}
+
+function getOneLineExcerpt(value: string) {
+  const excerpt = clean(value).split(/(?<=[.!?])\s+/)[0] || clean(value)
+  return excerpt.length > 150 ? `${excerpt.slice(0, 147).trimEnd()}…` : excerpt
+}
+
 function field(item: string, name: string) {
   return item.match(new RegExp(`<${name}[^>]*>([\\s\\S]*?)</${name}>`, "i"))?.[1] ?? ""
 }
@@ -28,10 +38,10 @@ export async function getMediumArticles(limit = 3): Promise<Article[]> {
       const published = new Date(clean(field(item, "pubDate")))
       return {
         title: clean(field(item, "title")),
-        description: clean(field(item, "description")),
+        description: getOneLineExcerpt(field(item, "description")),
         url: clean(field(item, "link")),
         date: Number.isNaN(published.getTime()) ? "" : published.toLocaleDateString("en-US", { month: "short", day: "numeric" }),
-        readTime: "",
+        readTime: getReadTime(content),
         tag: "",
         publication: "Medium",
         thumbnail: image || fallbackArticles[0].thumbnail,
@@ -40,6 +50,9 @@ export async function getMediumArticles(limit = 3): Promise<Article[]> {
 
     return parsed.slice(0, limit)
   } catch {
-    return fallbackArticles.slice(0, limit)
+    return fallbackArticles.slice(0, limit).map((article) => ({
+      ...article,
+      description: getOneLineExcerpt(article.description),
+    }))
   }
 }

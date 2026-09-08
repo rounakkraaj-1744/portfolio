@@ -7,6 +7,8 @@ import {
   SkillColumn,
 } from "./types";
 
+export const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/rounakkraaj707"
+
 export const personalInfo: PersonalInfo = {
   name: "Rounakk Raaj Sabat",
   role: "Backend Engineer",
@@ -14,6 +16,7 @@ export const personalInfo: PersonalInfo = {
   github: "https://github.com/rounakkraaj-1744",
   linkedin: "https://www.linkedin.com/in/rounakkraajsabat/",
   baseUrl: "https://rounakk.in",
+  calendlyUrl: CALENDLY_URL,
 };
 
 export const experiences: Experience[] = [

@@ -3,7 +3,6 @@ import type { Metadata } from "next"
 import { DM_Sans, Fraunces, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 import NavbarWrapper from "@/components/NavbarWrapper"
-import ThemeProvider from "@/components/ThemeProvider"
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -34,12 +33,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="en" className="scroll-smooth">
       <body className={`${dmSans.variable} ${fraunces.variable} ${jetbrainsMono.variable} font-sans antialiased bg-[#F7F5F0] text-[#111111] selection:bg-[#111] selection:text-white`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <NavbarWrapper />
-          {children}
-        </ThemeProvider>
+        <NavbarWrapper />
+        {children}
       </body>
     </html>
   )
