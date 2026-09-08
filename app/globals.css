@@ -154,6 +154,13 @@ html.dark .btn-secondary:hover,
   }
 }
 
+nextjs-portal,
+#__next-build-watcher,
+[data-nextjs-dev-indicator],
+[data-nextjs-toast] {
+  display: none !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   ::before,

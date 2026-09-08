@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, Download } from "lucide-react"
+import { ArrowRight, ArrowUpRight } from "lucide-react"
 
 const PHRASES = [
   "BACKEND ENGINEERING",
@@ -79,6 +79,7 @@ export default function Hero() {
               BACKEND / DISTRIBUTED SYSTEMS / CLOUD
             </p>
 
+            {/* 1. Hero Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-[62px] font-bold text-[#111111] leading-[1.06] tracking-tight font-serif mb-5">
               I build<br />
               backend systems<br />
@@ -86,47 +87,44 @@ export default function Hero() {
               production.
             </h1>
 
-            <p className="text-base sm:text-[17px] text-gray-600 leading-relaxed max-w-[480px] mb-8 font-normal">
-              Distributed systems, real-time data pipelines, high-concurrency APIs, and cloud infrastructure built for impact.
+            <p className="text-base sm:text-[17px] text-gray-600 leading-relaxed max-w-[500px] mb-8 font-normal">
+              Distributed systems, real-time data pipelines, high-concurrency APIs, and cloud infrastructure built for reliability and scale.
             </p>
 
             <div className="flex flex-wrap items-center gap-3.5 mb-10 sm:mb-12">
               <Link 
                 href="#work" 
-                className="group btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-full text-[13px] font-medium transition-colors duration-200 shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#111111]"
+                className="group btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-full text-[13px] font-medium transition-all duration-200 active:translate-y-0 shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#111111]"
               >
-                View my work 
+                <span>View my work</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-200 ease-out group-hover:translate-x-1" />
               </Link>
-              <a 
-                href="/resume.pdf" 
-                download 
-                className="group btn-secondary inline-flex items-center gap-2 px-6 py-3 rounded-full text-[13px] font-medium transition-colors duration-200 shadow-2xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#111111]"
-              >
-                Download CV 
-                <Download className="w-4 h-4 transition-transform duration-200 ease-out group-hover:translate-y-0.5" />
-              </a>
+              
+              <Link href="/resume" className="group btn-secondary inline-flex items-center gap-1.5 px-6 py-3 rounded-full text-[13px] font-medium transition-all duration-200 active:translate-y-0 shadow-2xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#111111]" >
+                <span>View CV</span>
+                <ArrowUpRight className="w-4 h-4 transition-transform duration-200 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
             </div>
 
             <div className="pt-6 border-t border-[#E7E5DE] w-full">
-              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 min-h-[44px]">
+              <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 min-h-[36px]">
                 <div className="flex items-center gap-2 shrink-0">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#111111]/70 animate-pulse" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#111111]" />
                   <span className="text-[11px] font-bold text-gray-500 font-mono uppercase tracking-wider">
                     FOCUS AREA:
                   </span>
                 </div>
 
                 <div 
-                  className="flex items-center font-mono text-sm sm:text-[15px] font-semibold text-[#111111] tracking-wide"
+                  className="inline-flex items-center font-mono text-xs sm:text-[13px] font-semibold text-[#111111] tracking-wider uppercase"
                   aria-live="polite"
                   aria-atomic="true"
                 >
                   <span className="sr-only">Focus area: {PHRASES[phraseIndex]}</span>
-                  <span aria-hidden="true" className="inline-block min-w-[220px] sm:min-w-[250px]">
+                  <span aria-hidden="true" className="inline-block min-w-[210px] sm:min-w-[245px]">
                     {text}
                     {!prefersReducedMotion && (
-                      <span className="inline-block w-[2px] h-[1.1em] bg-[#111111] ml-0.5 align-middle animate-pulse" />
+                      <span className="inline-block w-[2px] h-[1.15em] bg-[#111111] ml-1 align-middle animate-pulse" />
                     )}
                   </span>
                 </div>
@@ -139,10 +137,10 @@ export default function Hero() {
             <div className="relative w-full max-w-[430px] aspect-[4/4.9] rounded-[28px] overflow-hidden shadow-lg border border-black/5 bg-[#2B3542] group">
               <Image 
                 src="/myimage.png" 
-                alt="Rounakk - Building scalable systems" 
+                alt="Rounakk - Building scalable backend systems" 
                 fill 
                 priority 
-                className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.01]"
               />
             </div>
           </div>
